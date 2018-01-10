@@ -5,5 +5,32 @@ html {
 
 body {
   font-family: $base-font-family;
-  background: tomato;
+  background: $color-body-bg;
+  display: grid;
+  grid-gap: $spacer;
+  grid-template-areas:
+    'header'
+    'main'
+    'nav';
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: $block-padding;
 }
+
+header {
+  grid-area: header;
+  grid-template-areas:
+    'header__logo'
+    'header__nav';
+  grid-template-columns: repeat(12, [col-start] 1fr)
+}
+
+main {
+  grid-area: main;
+}
+
+nav {
+  grid-area: nav;
+}
+
