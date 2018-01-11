@@ -39,6 +39,7 @@ gulp.task('copy', function() {
 
 gulp.task('browserSync', function() {
   browserSync.init({
+    browser: 'google chrome',
     server: {
       baseDir: 'dist'
     }
