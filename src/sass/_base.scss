@@ -10,7 +10,8 @@ body {
   grid-gap: $spacer;
   grid-template-areas:
     'header'
-    'main';
+    'main'
+    'footer';
   grid-template-columns: 1fr;
   margin: 0 auto;
   max-width: 1200px;
@@ -23,11 +24,13 @@ body {
   grid-template-areas:
     'logo social--top-nav'
     'nav nav';
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
 }
 
 .logo {
+  display: flex;
   grid-area: logo;
+  justify-content: flex-start;
   text-align: center;
 }
 
@@ -37,6 +40,37 @@ body {
 
 .social__item-list {
   display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &--top-nav {
+    justify-content: flex-end;
+  }
+  &--footer {
+    justify-content: center;
+  }
+}
+
+.social__item {
+  a {    
+    font-size: 0;
+    text-decoration: none;
+    &:focus,
+    &:hover {
+      &:before {
+        background-color: $color-gray-dark;
+      }
+    }
+    &:before {
+      align-items: center;
+      content: '😎';
+      display: inline-flex;
+      font-size: $base-font-size;
+      height: 2em;
+      justify-content: center;
+      width: 2em;  
+    }
+  }
 }
 
 main {
@@ -72,12 +106,27 @@ main {
   }
 }
 
+.footer {
+  grid-area: footer;
+}
+
 @media (min-width: 481px) {
   body {
-    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-areas:
+      'header header header header header header'
+      'main main main main main main'
+      'footer footer footer footer footer footer';
+    grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
   }
 
-  .header {
-    flex-direction: row;
+  main {
+    display: grid;
+    grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
+    border: $base-border;
+    grid-column: col-start 2 / span 6;
+  }
+
+  .content {
+    grid-column: 2 / 6;
   }
 }

@@ -1,3 +1,4 @@
+// Colors
 $color-white: #ffffff;
 $color-gray-lightest: #e3e3e3;
 $color-gray-light: #b8b8b8;
@@ -6,12 +7,15 @@ $color-black: #000000;
 
 $color-body-bg: $color-gray-lightest;
 
-
+// Layouts and spacing
 $spacer: 1em;
+$block-padding: $spacer;
 
+// Fonts
 $base-font-family: 'Josefin Sans', sans-serif;
 $base-font-size: 18px;
 
-
-
-$block-padding: $spacer;
+// Styling
+$base-border-size: 1px;
+$base-border-color: $color-gray-dark;
+$base-border: $base-border-size $base-border-color solid;
