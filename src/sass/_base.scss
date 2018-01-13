@@ -38,43 +38,14 @@ body {
   grid-area: social--top-nav;
 }
 
-.social__item-list {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  &--top-nav {
-    justify-content: flex-end;
-  }
-  &--footer {
-    justify-content: center;
-  }
-}
-
-.social__item {
-  a {    
-    font-size: 0;
-    text-decoration: none;
-    &:focus,
-    &:hover {
-      &:before {
-        background-color: $color-gray-dark;
-      }
-    }
-    &:before {
-      align-items: center;
-      content: '😎';
-      display: inline-flex;
-      font-size: $base-font-size;
-      height: 2em;
-      justify-content: center;
-      width: 2em;  
-    }
-  }
-}
-
 main {
   grid-area: main;
+  a {
+    color: $base-link-color;
+  } 
+}
+
+.content {
 }
 
 .nav {
@@ -91,6 +62,10 @@ main {
 
 .nav__item {
   display: flex;
+  &:not(:last-child) {
+    margin-bottom: em(10);
+  }
+
   > a {
     background-color: $color-gray-dark;
     color: $color-gray-lightest;
@@ -106,27 +81,65 @@ main {
   }
 }
 
+.video__wrapper {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%; // For ratio 16:9. 75% if ratio is 4:3
+  position: relative;
+
+  embed,
+  object,
+  iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
 .footer {
   grid-area: footer;
 }
 
-@media (min-width: 481px) {
+@media (min-width: $device-width-small) {
   body {
     grid-template-areas:
       'header header header header header header'
       'main main main main main main'
       'footer footer footer footer footer footer';
     grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
+    padding: 0;
   }
 
-  main {
+  main,
+  .content {
     display: grid;
     grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
-    border: $base-border;
-    grid-column: col-start 2 / span 6;
   }
 
   .content {
+    grid-column: col-start 2 / span 6;
+  }
+  
+  .content__title-wrapper {
+    grid-column: 3 / 5;
+    text-align: center;
+  }
+
+  .content__body-wrapper {
+    display: grid;
+    border-left: $base-border;
+    border-top: $base-border;
+    grid-column: span 6;
+    grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
+  }
+
+  .content__body {
     grid-column: 2 / 6;
+  }
+
+  .video {
+    grid-column: span 6;
   }
 }

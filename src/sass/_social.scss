@@ -1,0 +1,60 @@
+.social__item-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &--top-nav {
+    justify-content: flex-end;
+  }
+  &--footer {
+    justify-content: center;
+  }
+}
+
+.social__item {
+  .social__item-icon,
+  a {
+    height: em(36);
+    width: em(36);
+  }
+
+  a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+
+    //Hack for making <a> clickable around SVG
+    &:after {
+      content: ""; 
+      position: absolute; 
+      top: 0; 
+      right: 0; 
+      bottom: 0; 
+      left: 0;
+    }
+  }
+
+  &:not(:last-child) {
+    a {
+      margin-right: em(5);
+    }
+  }
+}
+
+@media (min-width: $device-width-large) {
+  .social__item-list--footer {
+    .social__item {
+      .social__item-icon,
+      a {
+        height: em(214);
+        width: em(214);
+      }
+
+      &:not(:last-child) {
+        a {
+          margin-right: em(25);
+        }
+      }
+    }
+  }
+}

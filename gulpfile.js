@@ -37,6 +37,12 @@ gulp.task('copy', function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('images', function() {
+  gulp.src('src/img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/img'));
+});
+
 gulp.task('browserSync', function() {
   browserSync.init({
     browser: 'google chrome',
