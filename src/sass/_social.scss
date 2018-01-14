@@ -41,18 +41,18 @@
   }
 }
 
-@media (min-width: $device-width-large) {
+@media (min-width: $device-width-small) {
   .social__item-list--footer {
     .social__item {
       .social__item-icon,
       a {
-        height: em(214);
-        width: em(214);
+        height: em(96);
+        width: em(96);
       }
 
       &:not(:last-child) {
         a {
-          margin-right: em(25);
+          margin-right: em(12);
         }
       }
     }

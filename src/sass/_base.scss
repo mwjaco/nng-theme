@@ -123,14 +123,35 @@ main {
   }
   
   .content__title-wrapper {
-    grid-column: 3 / 5;
+    align-items: center;
+    background-image: linear-gradient(180deg, transparent, $color-black, transparent);
+    background-position: 50%;
+    background-repeat: repeat-x;
+    background-size: 1px auto;
+    display: flex;
+    grid-column: span 6;
+    justify-content: center;
+    position: relative;
     text-align: center;
+    &:after {
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      height: 50%;
+      border-left: $base-border;
+    }
+  }
+
+  .content__title {
+    background-color: $color-body-bg;
+    margin: 0;
+    padding: 0 1em;
   }
 
   .content__body-wrapper {
     display: grid;
     border-left: $base-border;
-    border-top: $base-border;
     grid-column: span 6;
     grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
   }
