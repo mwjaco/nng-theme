@@ -19,19 +19,10 @@ body {
 }
 
 .header {
+  align-items: center;
   display: grid;
   grid-area: header;
-  grid-template-areas:
-    'logo social--top-nav'
-    'nav nav';
-  grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
-}
-
-.logo {
-  display: flex;
-  grid-area: logo;
-  justify-content: flex-start;
-  text-align: center;
+  grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
 }
 
 .social--top-nav {
@@ -45,40 +36,19 @@ main {
   } 
 }
 
-.content {
-}
-
-.nav {
-  grid-area: nav;
-}
-
-.nav__item-list {
+.content__title-wrapper {
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  list-style: none;
+  justify-content: center;
+}
+
+.content__title {
   margin: 0;
-  padding: 0;
 }
 
-.nav__item {
-  display: flex;
-  &:not(:last-child) {
-    margin-bottom: em(10);
-  }
-
-  > a {
-    background-color: $color-gray-dark;
-    color: $color-gray-lightest;
-    flex: 1 0 auto;
-    padding: $spacer;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    &:not(:hover):not(:focus) {
-      background-color: $color-gray-light;
-      color: $color-black;
-    }
-  }
+.nav__button {
+  grid-area: nav__button;
+  // display: none;
 }
 
 .video__wrapper {
@@ -88,8 +58,8 @@ main {
   position: relative;
 
   embed,
-  object,
-  iframe {
+  iframe,
+  object {
     height: 100%;
     left: 0;
     position: absolute;
@@ -112,6 +82,11 @@ main {
     padding: 0;
   }
 
+  .header {
+    grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
+    padding: $spacer;
+  }
+
   main,
   .content {
     display: grid;
@@ -123,16 +98,12 @@ main {
   }
   
   .content__title-wrapper {
-    align-items: center;
     background-image: linear-gradient(180deg, transparent, $color-black, transparent);
     background-position: 50%;
     background-repeat: repeat-x;
-    background-size: 1px auto;
-    display: flex;
+    background-size: 1px 1px;
     grid-column: span 6;
-    justify-content: center;
     position: relative;
-    text-align: center;
     &:after {
       bottom: 0;
       content: '';
@@ -145,7 +116,6 @@ main {
 
   .content__title {
     background-color: $color-body-bg;
-    margin: 0;
     padding: 0 1em;
   }
 

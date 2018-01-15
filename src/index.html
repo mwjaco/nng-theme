@@ -14,15 +14,26 @@
 </head>
 <body>
     <header class='header'>
-        <a class='logo'>Network<br/>Next Gen</a>
-        <nav class='nav'>
-          <ul class='nav__item-list'>
-            <li class='nav__item'><a href="#">How It Works</a></li>
-            <li class='nav__item'><a href="#">Where It Happens</a></li>
-            <li class='nav__item'><a href="#">The Network</a></li>
-            <li class='nav__item'><a href="#">Get Involved</a></li>
-          </ul>
-        </nav>
+        <div class='nav'>
+            <input class='nav__checkbox' id='menu-toggle' name='Show/Hide Menu' type='checkbox' />
+            <label class='nav__button' for='menu-toggle'>
+                <span></span>
+                <span></span>
+                <span></span>
+                Show/Hide Menu
+            </label>
+            <a class='brand' href='' title='Network Next Gen - Home'>
+                <object type='image/svg+xml' data='img/logo.svg' class='brand__logo'></object>
+            </a>
+            <nav class='nav__nav-bar'>
+              <ul class='nav__item-list'>
+                <li class='nav__item'><a href="#">How It Works</a></li>
+                <li class='nav__item'><a href="#">Where It Happens</a></li>
+                <li class='nav__item'><a href="#">The Network</a></li>
+                <li class='nav__item'><a href="#">Get Involved</a></li>
+              </ul>
+            </nav>
+        </div>
         <div class='social social--top-nav'>
             <ul class='social__item-list social__item-list--top-nav'>
                 <li class='social__item'>

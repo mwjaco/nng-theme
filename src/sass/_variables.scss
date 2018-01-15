@@ -23,7 +23,9 @@ $base-font-size: #{$browser-context}px;
 }
 
 // Layouts and spacing
-$spacer: em($browser-context);  
+$header-height-value: 149;
+$header-height: em($header-height-value);
+$spacer: em($browser-context);
 $block-padding: $spacer;
 
 // Styling

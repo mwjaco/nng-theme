@@ -1,0 +1,30 @@
+.brand {
+  display: flex;
+  grid-area: brand;
+  grid-column: 2 / -1;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+
+  //Hack for making <a> clickable around SVG
+  &:after {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+  }
+}
+
+.brand__logo {
+  height: $header-height;
+}
+
+@media (min-width: $device-width-small) {
+  .brand {
+    grid-column: 1 / 2;
+    justify-content: flex-start;
+  }
+}

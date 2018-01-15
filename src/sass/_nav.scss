@@ -1,0 +1,150 @@
+.nav {
+  align-items: center;
+  display: grid;
+  grid-area: nav;
+  grid-column: 1 / 5;
+  grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
+}
+
+.nav__nav-bar {
+  background-color: $color-body-bg;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: em($header-height-value);
+  width: 100%;
+  z-index: 1;
+}
+
+.nav__checkbox {
+  display: none;
+
+  &:checked ~ .nav__nav-bar {
+    display: block;
+  }
+}
+
+.nav__button {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0;
+  grid-column: 1 / 2;
+  span {
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: $base-font-color;
+    border-radius: 3px;
+    z-index: 1;
+
+    :first-child {
+      transform-origin: 0% 0%;
+    }
+
+    :nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+
+    :nth-last-child(3) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    :nth-last-child(2) {
+      transform: rotate(-45deg) translate(0, -1px);
+    }
+
+#menuToggle span
+
+#menuToggle span
+
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+
+
+  }
+}
+
+.nav__item-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item {
+  display: flex;
+  &:not(:last-child) {
+    margin-bottom: em(10);
+  }
+
+  > a {
+    background-color: $color-gray-dark;
+    color: $color-gray-lightest;
+    flex: 1 0 auto;
+    padding: $spacer;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:not(:hover):not(:focus) {
+      background-color: $color-gray-light;
+      color: $color-black;
+    }
+  }
+}
+
+@media (min-width: $device-width-small) {
+  .nav__checkbox {
+    display: none;
+
+    &:checked ~ .nav__nav-bar {
+      display: none;
+    }
+  }
+
+  .nav {
+    grid-column: 1 / 2;
+
+    &:hover {
+      .nav__nav-bar {
+        display: block;
+      }
+    }
+  }
+
+  .nav__checkbox,
+  .nav__button {
+    display: none;
+  }
+
+  .nav__nav-bar {
+    background-color: transparent;
+    display: none;
+    left: $spacer;
+    top: em($header-height-value);
+    width: auto;
+  }
+}
+
+@media (pointer: coarse) {
+  .nav__button {
+    display: block;
+  }
+}
