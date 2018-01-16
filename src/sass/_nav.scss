@@ -6,79 +6,57 @@
   grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
 }
 
-.nav__nav-bar {
-  background-color: $color-body-bg;
-  display: none;
-  left: 0;
-  position: absolute;
-  top: em($header-height-value);
-  width: 100%;
-  z-index: 1;
-}
-
 .nav__checkbox {
   display: none;
-
-  &:checked ~ .nav__nav-bar {
-    display: block;
-  }
 }
 
 .nav__button {
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: relative;
   font-size: 0;
   grid-column: 1 / 2;
-  span {
-  
+}
+
+.nav__button-bar {
+  background-color: $base-font-color;
+  border-radius: 3px;
+  display: block;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
   transform-origin: 4px 0px;
-  
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background-color 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               opacity 0.55s ease;
+  width: 33px;
+  z-index: 1;
 
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    background: $base-font-color;
-    border-radius: 3px;
-    z-index: 1;
+  &:first-child {
+    transform-origin: 0% 0%;
+  }
 
-    :first-child {
-      transform-origin: 0% 0%;
-    }
+  &:last-child {
+    transform-origin: 0% 100%;
+  }
+}
 
-    :nth-last-child(2) {
-      transform-origin: 0% 100%;
-    }
+.nav__checkbox:checked ~ .nav__button {
+  .nav__button-bar {
+    background-color: $color-body-bg;
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
 
-    :nth-last-child(3) {
+    &:not(:first-child):not(:last-child) {
       opacity: 0;
       transform: rotate(0deg) scale(0.2, 0.2);
     }
 
-    :nth-last-child(2) {
-      transform: rotate(-45deg) translate(0, -1px);
+    &:last-child {
+      transform: rotate(-45deg) translate(-2px, 1px);
     }
-
-#menuToggle span
-
-#menuToggle span
-
-
-#menuToggle input:checked ~ span
-{
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-}
-
-
-
-  }
+  }  
 }
 
 .nav__item-list {
@@ -96,31 +74,41 @@
   }
 
   > a {
-    background-color: $color-gray-dark;
     color: $color-gray-lightest;
     flex: 1 0 auto;
     padding: $spacer;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    &:not(:hover):not(:focus) {
-      background-color: $color-gray-light;
-      color: $color-black;
-    }
+  }
+}
+
+@media (max-width: ($device-width-small - 1)) {
+  .nav__nav-bar {
+    background-color: $color-gray-dark;
+    height: 100vh;
+    list-style-type: none;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    transform: translate(-100%, 0);
+    transform-origin: 0% 0%;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    position: absolute;
+    width: 300px;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+  }
+
+  .nav__checkbox:checked ~ .nav__nav-bar {
+    transform: none;
   }
 }
 
 @media (min-width: $device-width-small) {
-  .nav__checkbox {
-    display: none;
-
-    &:checked ~ .nav__nav-bar {
-      display: none;
-    }
-  }
-
   .nav {
     grid-column: 1 / 2;
+    position: relative;
 
     &:hover {
       .nav__nav-bar {
@@ -134,12 +122,36 @@
     display: none;
   }
 
+  .nav__checkbox {
+    &:checked ~ .nav__nav-bar {
+      display: none;
+    }
+  }
+
   .nav__nav-bar {
     background-color: transparent;
     display: none;
-    left: $spacer;
-    top: em($header-height-value);
+    left: 0;
+    position: absolute;
+    top: em($header-height-value * 0.85) ;
     width: auto;
+    z-index: 1;
+  }
+
+  .nav__item {
+    > a {
+      background-color: $color-gray-dark;
+      color: $color-gray-lightest;
+      flex: 1 0 em(250);
+      padding: $spacer;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:not(:hover):not(:focus) {
+        background-color: $color-gray-light;
+        color: $color-black;
+      }
+    }
   }
 }
 
