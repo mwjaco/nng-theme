@@ -87,6 +87,12 @@ main {
     padding: $spacer;
   }
 
+  main {
+    grid-template-areas:
+      'content content content content content content'
+      'banner banner banner banner banner banner';
+  }
+
   main,
   .content {
     display: grid;
@@ -94,6 +100,7 @@ main {
   }
 
   .content {
+    grid-area: 'content';
     grid-column: col-start 2 / span 6;
   }
   
