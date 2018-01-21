@@ -14,7 +14,7 @@ body {
     'footer';
   grid-template-columns: 1fr;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: $max-width;
   padding: $block-padding;
 }
 
@@ -100,7 +100,7 @@ main {
   }
 
   .content {
-    grid-area: 'content';
+    grid-area: content;
     grid-column: col-start 2 / span 6;
   }
   

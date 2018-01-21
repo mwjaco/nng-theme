@@ -23,6 +23,7 @@ $base-font-size: #{$browser-context}px;
 }
 
 // Layouts and spacing
+$max-width: 1200px;
 $header-height-value: 149;
 $header-height: em($header-height-value);
 $spacer: em($browser-context);
