@@ -1,5 +1,4 @@
 .nav {
-  align-items: center;
   display: grid;
   grid-area: nav;
   grid-column: 1 / 5;
@@ -31,7 +30,7 @@
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               background-color 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               opacity 0.55s ease;
-  width: 33px;
+  width: $nav-button-bar-width;
   z-index: 1;
 
   &:first-child {
@@ -68,6 +67,13 @@
   padding: 0;
 }
 
+.nav__item-list--social {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: $spacer;
+}
+
 .nav__item {
   display: flex;
   &:not(:last-child) {
@@ -78,20 +84,21 @@
     color: $color-gray-lightest;
     flex: 1 0 auto;
     padding: $spacer;
-    text-align: center;
     text-decoration: none;
     text-transform: uppercase;
   }
 }
 
 @media (max-width: ($device-width-small - 1)) {
+  .nav__button {
+    position: absolute;
+  }
   .nav__nav-bar {
     background-color: $color-gray-dark;
     height: 100vh;
     list-style-type: none;
     margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
+    padding: 125px $spacer $spacer 70px;
     transform: translate(-100%, 0);
     transform-origin: 0% 0%;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -108,6 +115,7 @@
 
 @media (min-width: $device-width-small) {
   .nav {
+    align-items: center;
     grid-column: 1 / 2;
     position: relative;
 

@@ -9,14 +9,26 @@
   justify-content: flex-end;
 }
 
+.social--footer {
+  margin-bottom: 50px;
+}
+
 .social__item-list {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
+.social__item-list--mobile-nav {
+
+  .social__item {
+    flex: 0 3em;
+  }
+}
+
 
 .social__item-list--top-nav {
+  display: none;
   flex-wrap: wrap;
   justify-content: flex-end;
 
@@ -60,6 +72,10 @@
 }
 
 @media (min-width: $device-width-small) {
+  .social__item-list--mobile-nav {
+    display: none;
+  }
+
   .social__item-list--top-nav {
     display: inline-flex;
 

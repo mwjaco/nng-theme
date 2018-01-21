@@ -23,7 +23,7 @@ $base-font-size: #{$browser-context}px;
 }
 
 // Layouts and spacing
-$max-width: 1200px;
+$max-width: 1440px;
 $header-height-value: 149;
 $header-height: em($header-height-value);
 $spacer: em($browser-context);
@@ -33,6 +33,9 @@ $block-padding: $spacer;
 $base-border-size: 1px;
 $base-border-color: $color-gray-dark;
 $base-border: $base-border-size $base-border-color solid;
+
+// Nav
+$nav-button-bar-width: 33px;
 
 // Media queries
 $device-width-small: 481px;

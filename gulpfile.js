@@ -47,7 +47,8 @@ gulp.task('browserSync', function() {
   browserSync.init({
     browser: 'google chrome',
     server: {
-      baseDir: 'dist'
+      baseDir: 'dist',
+      index: 'index.html'
     }
   })
 });

@@ -3,12 +3,12 @@
   grid-area: banner;
   grid-gap: 4px;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: [banner-start] 1fr [banner-end] 4em;
+  margin-bottom: $spacer;
 }
 
 .banner__wrapper {
   display: grid;
-  grid-column: 1 / span 7;
+  grid-column: 1 / span 8;
   grid-gap: 3px;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -53,13 +53,29 @@
 }
 
 .banner__line-break {
-  border-bottom: 0;
-  border-left: $base-border;
-  border-right: 0;
-  border-top: 0;
-  grid-column: 8 / -1;
-  grid-row: banner-end;
-  height: auto;
-  margin: 0;
-  padding: 0;
+  display: none;
+}
+
+@media (min-width: $device-width-small) {
+  .banner {
+    grid-template-rows: [banner-start] 1fr [banner-end] 4em;
+    margin-bottom: 0;
+  }
+
+  .banner-wrapper {
+    grid-column: 1 / span 7;
+  }
+
+  .banner__line-break {
+    border-bottom: 0;
+    border-left: $base-border;
+    border-right: 0;
+    border-top: 0;
+    display: block;
+    grid-column: 8 / -1;
+    grid-row: banner-end;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
 }
