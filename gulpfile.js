@@ -8,6 +8,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const uncss = require('gulp-uncss');
 const useref = require('gulp-useref');
+const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 
 const onError = function(err) {
@@ -24,6 +25,16 @@ gulp.task('css', function() {
     }))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('dist/css'))
+    .pipe(browserSync.stream());
+});
+
+gulp.task('js', function() {
+  return gulp.src('src/js/**/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat('app.js'))
+    .on('error', onError)
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
 });
 

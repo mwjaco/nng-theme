@@ -1,0 +1,2 @@
+function ready(e){(document.attachEvent?"complete"===document.readyState:"loading"!==document.readyState)?e():document.addEventListener("DOMContentLoaded",e)}function updateRows(){var e=window.getComputedStyle(document.querySelector("html")),t=parseInt(e.getPropertyValue("--numOfRows")),o=document.querySelectorAll(".city-picker__item").length,n=Math.floor(o/2.5);t!==n&&document.documentElement.style.setProperty("--numOfRows",n)}ready(function(){updateRows()});
+//# sourceMappingURL=bundle.js.map

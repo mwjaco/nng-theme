@@ -1,0 +1,1 @@
+console.log(document.querySelectorAll('.city-picker__item').length);

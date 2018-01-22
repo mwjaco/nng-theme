@@ -12,9 +12,11 @@
   "devDependencies": {
     "babel-preset-env": "^1.4.0",
     "browser-sync": "^2.23.3",
+    "css-vars": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.4.0",
     "gulp-sass": "^3.1.0",
