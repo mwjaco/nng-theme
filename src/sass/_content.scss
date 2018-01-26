@@ -6,8 +6,14 @@
   grid-column: 1 / -1;
 }
 
+.content {
+  padding: $spacer;  
+}
+
+
 .content--shift-right {
   grid-column: col-start 2 / span 6;
+  padding: 0;
 
   .content__title-wrapper {
     background-image: linear-gradient(180deg, transparent, $color-black, transparent);

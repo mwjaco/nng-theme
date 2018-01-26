@@ -42,7 +42,9 @@ gulp.task('copy', function() {
   return gulp.src('src/**/*.html')
     .pipe(useref())
     .pipe(gulpif('*.js', sourcemaps.init()))
-    .pipe(gulpif('*.js', uglify()))
+    .pipe(gulpif('*.js', uglify().on('error', function(e){
+      console.log(e);
+     })))
     .pipe(gulpif('*.js', sourcemaps.write('.')))
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.stream());
@@ -59,7 +61,7 @@ gulp.task('browserSync', function() {
     browser: 'google chrome',
     server: {
       baseDir: 'dist',
-      index: 'index.html'
+      index: 'where.html'
     }
   })
 });

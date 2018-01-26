@@ -102,10 +102,16 @@ body {
   }
 
   .main--page {
-    grid-template-areas:
+    grid-template-areas: 
       'content content content content content content'
       'city-picker city-picker city-picker city-picker city-picker city-picker'
-      'banner banner banner banner banner banner';
+  }
+
+  .main--page-shift-right {
+    grid-template-areas:
+      'content content content content content content'
+      'banner banner banner banner banner banner'
+      'video video video video video video';
   }
 
   .main,
@@ -120,6 +126,7 @@ body {
   }
 
   .video {
+    grid-area: video;
     grid-column: span 6;
   }
 }
