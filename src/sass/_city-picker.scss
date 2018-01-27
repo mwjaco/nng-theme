@@ -1,5 +1,6 @@
 .city-picker {
   grid-area: city-picker;
+  margin-bottom: em(60);
 }
 
 .city-picker__item-image {
@@ -20,30 +21,22 @@
 .city-picker__item {
   &:nth-of-type(5n+1) {
     grid-column: 2 / 6;
-    // grid-row: auto / span 2;
   }
 
   &:nth-of-type(5n+2) {
     grid-column: 6 / 10;
-    // grid-row: auto / span 2;
   }
 
   &:nth-of-type(5n+3) {
     grid-column: 10 / 14;
-    // grid-row: auto / span 2;
   }
 
   // Rows of two
   &:nth-of-type(5n+4) {
     grid-column: 4 / 8;
-    // grid-row: auto / span 2;
   }
 
   &:nth-of-type(5n+5) {
     grid-column: 8 / 12;
-    // grid-row: auto / span 2;
   }
 }
-
-// Dynamic rules
-// ... just use JS
