@@ -61,7 +61,7 @@ gulp.task('browserSync', function() {
     browser: 'google chrome',
     server: {
       baseDir: 'dist',
-      index: 'locations.html'
+      index: 'index.html'
     }
   })
 });

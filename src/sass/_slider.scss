@@ -98,11 +98,9 @@
   border-bottom: 20px solid transparent;
   border-top: 20px solid transparent;
   border-right: 20px solid $color-white;
-  // box-shadow: inset 1px -1px 0 1px white;
   cursor: pointer;
   display: none;
   height: 0;
-  // padding: 0.5em;
   position: absolute;
   top: -50%;
   width: 0;
@@ -121,7 +119,6 @@
 .slider__input-radio:nth-of-type(11):checked ~ .slider__arrows-list .slider__arrow:nth-of-type(10) {
   display: block;
   left: 1em;
-  // transform: rotate(45deg);
 }
 
 .slider__input-radio:nth-of-type(1):checked ~ .slider__arrows-list .slider__arrow:nth-of-type(2),

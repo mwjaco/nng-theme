@@ -5,6 +5,10 @@
   grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
 }
 
+.nav__nav-bar {
+  z-index: 2;
+}
+
 .nav__checkbox {
   display: none;
 }
@@ -31,7 +35,7 @@
               background-color 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               opacity 0.55s ease;
   width: $nav-button-bar-width;
-  z-index: 1;
+  z-index: 3;
 
   &:first-child {
     transform-origin: 0% 0%;
@@ -144,7 +148,6 @@
     position: absolute;
     top: em($header-height-value * 0.85) ;
     width: auto;
-    z-index: 1;
   }
 
   .nav__item {
