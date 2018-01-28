@@ -1,0 +1,29 @@
+.sponsors {
+  grid-column: 1 / -1;
+}
+
+// .sponsors__wrapper {
+//   margin-bottom: em(120);
+// }
+
+.sponsors__item-list {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sponsors__item {
+  align-items: center;
+  display: flex;
+  flex: 0 0 21%;
+  margin-bottom: em(60);
+}
+
+.sponsors__item-img {
+  margin: 0 auto;
+  max-width: 100%;
+}

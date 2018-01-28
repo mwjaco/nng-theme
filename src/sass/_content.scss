@@ -10,6 +10,9 @@
   padding: $spacer;  
 }
 
+.content .hr {
+  grid-column: 3 / 5;
+}
 
 .content--shift-right {
   grid-column: col-start 2 / span 6;

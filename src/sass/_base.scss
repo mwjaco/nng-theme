@@ -30,9 +30,10 @@ body {
 
 .main {
   grid-area: main;
-  a {
-    color: $base-link-color;
-  } 
+}
+
+.content a {
+  color: $base-link-color;
 }
 
 .content__title-wrapper {
@@ -43,6 +44,31 @@ body {
 
 .content__title {
   margin: 0;
+}
+
+.cta-button__wrapper {
+  text-align: center;
+}
+
+.cta-button {
+  background-color: $color-black;
+  color: $color-white;
+  cursor: pointer;
+  display: inline-flex;
+  padding: em(20) em(120);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hr {
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: $base-border;
+  margin: 0 0 em(60) 0;
+  max-width: 565px;
+  padding: 0;
+  width: 100%;
 }
 
 .nav__button {
