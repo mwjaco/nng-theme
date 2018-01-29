@@ -19,12 +19,13 @@
 }
 
 .brand__logo {
-  height: $header-height;
+  height: em($header-height-value);
 }
 
 @media (min-width: $device-width-small) {
   .brand {
     grid-column: 1 / 2;
     justify-content: flex-start;
+    padding: em(24) 0;
   }
 }

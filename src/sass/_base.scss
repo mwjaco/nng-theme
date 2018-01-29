@@ -47,17 +47,24 @@ body {
 }
 
 .cta-button__wrapper {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
+a.cta-button,
+button.cta-button,
 .cta-button {
   background-color: $color-black;
   color: $color-white;
   cursor: pointer;
-  display: inline-flex;
-  padding: em(20) em(120);
+  font-size: $larger-font-size;
+  padding: em(12);
   text-decoration: none;
   text-transform: uppercase;
+  &:not(:first-of-type) {
+    margin-top: em(10);
+  }
 }
 
 .hr {
@@ -65,7 +72,7 @@ body {
   border-left: 0;
   border-right: 0;
   border-top: $base-border;
-  margin: 0 0 em(60) 0;
+  margin: 0 0 em(36) 0;
   max-width: 565px;
   padding: 0;
   width: 100%;
@@ -123,8 +130,10 @@ body {
 
   .header {
     align-items: center;
+    background-color: $color-body-bg;
     grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
     padding: $spacer;
+    z-index: 2;
   }
 
   .main--page {

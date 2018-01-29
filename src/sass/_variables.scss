@@ -11,7 +11,7 @@ $color-black: #000000;
 $color-body-bg: $color-gray-lightest;
 
 // Fonts
-$browser-context: 16; 
+$browser-context: 21; 
 $base-link-color: $color-gray-medium;
 $base-font-color: $color-black;
 $base-font-family: 'Josefin Sans', sans-serif;
@@ -22,9 +22,11 @@ $base-font-size: #{$browser-context}px;
   @return #{$pixels/$context}em;
 }
 
+$smaller-font-size: em(14);
+$larger-font-size: em(26);
 // Layouts and spacing
 $max-width: 1050px;
-$header-height-value: 149;
+$header-height-value: 95;
 $header-height: em($header-height-value);
 $spacer: em($browser-context);
 $block-padding: $spacer;

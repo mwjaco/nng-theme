@@ -1,6 +1,22 @@
 .city-picker {
   grid-area: city-picker;
-  margin-bottom: em(60);
+  margin-bottom: em(36);
+}
+
+.city-picker__item-image-wrapper {
+  &:hover:before,
+  &:focus:before {
+    border: $base-border;
+    bottom: 20px;
+    content: '';
+    left: 20px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transform: rotate(45deg);
+
+    // mix-blend-mode: overlay;
+  }
 }
 
 .city-picker__item-image {
@@ -10,7 +26,7 @@
 
 .city-picker__item-list {
   display: grid;
-  grid-gap: $spacer;
+  grid-gap: 50px;
   grid-template-columns: repeat(14, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   list-style: none;
@@ -19,6 +35,8 @@
 }
 
 .city-picker__item {
+  position: relative;
+
   &:nth-of-type(5n+1) {
     grid-column: 2 / 6;
   }

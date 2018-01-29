@@ -1,10 +1,7 @@
 .sponsors {
   grid-column: 1 / -1;
+  padding: $spacer;
 }
-
-// .sponsors__wrapper {
-//   margin-bottom: em(120);
-// }
 
 .sponsors__item-list {
   display: flex;
@@ -20,7 +17,7 @@
   align-items: center;
   display: flex;
   flex: 0 0 21%;
-  margin-bottom: em(60);
+  margin-bottom: em(36);
 }
 
 .sponsors__item-img {
