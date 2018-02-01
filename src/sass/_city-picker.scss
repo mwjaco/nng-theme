@@ -4,29 +4,49 @@
 }
 
 .city-picker__item-image-wrapper {
-  &:hover:before,
-  &:focus:before {
-    border: $base-border;
-    bottom: 20px;
-    content: '';
-    left: 20px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    transform: rotate(45deg);
+  display: block;
 
-    // mix-blend-mode: overlay;
+  &:focus,
+  &:hover {
+    &:before {
+      border: 1px solid black;
+      content: '';
+      height: 75%;
+      position: absolute;
+      right: 12%;
+      top: 12%;
+      width: 75%;
+      transform: rotate(45deg)
+    }
+
+    &:after {
+      content: '';
+      background-color: $color-seaweed;
+      height: 70%;
+      position: absolute;
+      transform: rotate(45deg);
+      right: 15%;
+      top: 15%;
+      width: 70%;
+    }
+
+    .city-picker__item-image {
+      opacity: 0.5;
+      position: relative;
+      z-index: 2;
+    }
   }
 }
 
 .city-picker__item-image {
   display: block;
   width: 100%;
+  //transform: rotate(-45deg);
 }
 
 .city-picker__item-list {
   display: grid;
-  grid-gap: 50px;
+  grid-gap: 20px;
   grid-template-columns: repeat(14, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   list-style: none;
@@ -36,6 +56,10 @@
 
 .city-picker__item {
   position: relative;
+
+  // &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+  //   margin-top: 1em;
+  // }
 
   &:nth-of-type(5n+1) {
     grid-column: 2 / 6;

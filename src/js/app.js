@@ -29,15 +29,13 @@ nextGen.buildGrid = function() {
     }
 
     // Arrange first three of every five into odd rows
-    items
-      .slice(5 * i, 5 * i + 3)
+    items.slice(5 * i, 5 * i + 3)
       .forEach(function(item) {
         item.style.gridRow = shiftOddRowsBy + ' / span 2';
       });
 
     // Arrange last two of five into even rows
-    items
-      .slice(5 * i + 3, 5 * i + 5)
+    items.slice(5 * i + 3, 5 * i + 5)
       .forEach(function(item) {
         item.style.gridRow = shiftEvenRowsBy + ' / span 2';
       });

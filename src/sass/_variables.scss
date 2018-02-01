@@ -6,7 +6,7 @@ $color-gray-light: #b8b8b8;
 $color-gray-medium: #797777;
 $color-gray-dark: #444444;
 $color-black: #000000;
-
+$color-seaweed: #82ca9c;
 
 $color-body-bg: $color-gray-lightest;
 
@@ -22,7 +22,7 @@ $base-font-size: #{$browser-context}px;
   @return #{$pixels/$context}em;
 }
 
-$smaller-font-size: em(14);
+$smaller-font-size: em(14.8);
 $larger-font-size: em(26);
 // Layouts and spacing
 $max-width: 1050px;
