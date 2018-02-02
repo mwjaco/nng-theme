@@ -57,6 +57,21 @@
 .city-picker__item {
   position: relative;
 
+  // &:nth-child(1),
+  // &:nth-child(2),
+  // &:nth-child(3) {
+  //   .city-picker__item-image-wrapper {
+  //     &:focus,
+  //     &:hover {
+  //       &:before,
+  //       &:after {
+  //         margin-top: -0.5em;
+  //         margin-left: 0.5em;
+  //       }
+  //     }
+  //   }
+  // }
+
   // &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
   //   margin-top: 1em;
   // }

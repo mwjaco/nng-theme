@@ -34,6 +34,9 @@ body {
 
 .content a {
   color: $base-link-color;
+  &:hover {
+    color: $base-link-color-hover;
+  }
 }
 
 .content__title-wrapper {
@@ -64,6 +67,9 @@ button.cta-button,
   text-transform: uppercase;
   &:not(:first-of-type) {
     margin-top: em(10);
+  }
+  &:hover {
+    color: $color-white;
   }
 }
 

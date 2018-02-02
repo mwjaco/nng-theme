@@ -7,12 +7,14 @@ $color-gray-medium: #797777;
 $color-gray-dark: #444444;
 $color-black: #000000;
 $color-seaweed: #82ca9c;
+$color-plum: #551a8b;
 
 $color-body-bg: $color-gray-lightest;
 
 // Fonts
 $browser-context: 21; 
-$base-link-color: $color-gray-medium;
+$base-link-color: $color-plum;
+$base-link-color-hover: $color-gray-medium;
 $base-font-color: $color-black;
 $base-font-family: 'Josefin Sans', sans-serif;
 $base-font-size: #{$browser-context}px;
