@@ -134,11 +134,15 @@ button.cta-button,
     padding: 0;
   }
 
+  .header,
+  .footer {
+    padding: $spacer;
+  }
+
   .header {
     align-items: center;
     background-color: $color-body-bg;
     grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
-    padding: $spacer;
     z-index: 2;
   }
 
