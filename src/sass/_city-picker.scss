@@ -14,17 +14,6 @@
     position: relative;
     z-index: 2;
   }
-
-  &:after {
-    content: '';
-    background-color: $color-seaweed;
-    height: 70%;
-    position: absolute;
-    transform: rotate(-45deg);
-    right: 15%;
-    top: 15%;
-    width: 70%;
-  }
 }
 
 .city-picker__item-image {
@@ -69,12 +58,28 @@
 @media (min-width: $device-width-small) {
   .city-picker__item-image-wrapper {
     transform: rotate(45deg) scale(0.75);
+
     &:hover {
       border-color: $base-border-color;
+    }
+  }
+
+  .city-picker__item-image-wrapper--selected {
+    &:after {
+      content: '';
+      background-color: $color-seaweed;
+      height: 100%;
+      position: absolute;
+      transform: scale(0.88);
+      right: 0;
+      top: 0;
+      width: 100%;
     }
   }
 
   .city-picker__item-image {
     transform: rotate(-45deg) scale(1.25);
   }
+
+
 }

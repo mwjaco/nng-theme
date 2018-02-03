@@ -1,16 +1,16 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class='no-js' lang='en'>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Network Next Gen</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <!-- <link rel="apple-touch-icon" href="icon.png"> -->
+    <meta charset='utf-8'>
+    <meta http-equiv='x-ua-compatible' content='ie=edge'>
+    <title>Network Next Gen - Locations</title>
+    <meta name='description' content=''>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='manifest' href='site.webmanifest'> -->
+    <!-- <link rel='apple-touch-icon' href='icon.png'> -->
     <!-- Place favicon.ico in the root directory -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600i,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600i,700' rel='stylesheet'>
+    <link rel='stylesheet' href='css/style.css'>
 </head>
 <body>
     <header class='header'>
@@ -34,7 +34,7 @@
                     <ul class='nav__item-list nav__item-list--social social__item-list--mobile-nav'>
                         <li class='social__item'>
                             <a href='' title='Email'>
-                                <object type='image/svg+xml' data='img/email-white.svg' class='social__item-icon'></object>>
+                                <object type='image/svg+xml' data='img/email-white.svg' class='social__item-icon'></object>
                             </a>
                         </li>
                         <li class='social__item'>
@@ -49,7 +49,7 @@
                         </li>
                         <li class='social__item'>
                             <a href='' title='YouTube'>
-                                <object type='image/svg+xml' data='img/youtube-square.svg' class='social__item-icon'></object>
+                                <object type='image/svg+xml' data='img/youtube-square-white.svg' class='social__item-icon'></object>
                             </a>
                         </li>
                     </ul>
@@ -83,16 +83,6 @@
         </div>
     </header>
     <main class='main main--page'>
-        <section class='content'>
-            <div class='content__title-wrapper'>
-                <h1 class='content__title'>Where It Happens</h1>
-            </div>
-            <div class='content__body-wrapper'>
-                <div class='content__body'>
-                    <p>Network Next Gen hosts dinners at trendy hot spots in cities across the country. Check out photos from recent dinners by selecting each city below.</p>
-                </div>
-            </div>
-        </section>
         <section class='city-picker'>
             <ul class='city-picker__item-list'>
                 <li class='city-picker__item'>
@@ -106,7 +96,7 @@
                     </a>
                 </li>
                 <li class='city-picker__item'>
-                     <a class='city-picker__item-image-wrapper' title='Dallas' href='dallas.html'>
+                     <a class='city-picker__item-image-wrapper city-picker__item-image-wrapper--selected' title='Dallas' href='dallas.html'>
                         <img class='city-picker__item-image' src='img/Dallas.png' alt='' role='presentation' />
                     </a>
                 </li>
@@ -136,6 +126,54 @@
                     </a>
                 </li>
             </ul>
+        </section>
+        <section class='slider'>
+            <div class='slider__wrapper'>
+                <input type='radio' class='slider__input-radio' name='slides' id='slides_1'/>
+                <input type='radio' class='slider__input-radio' name='slides' checked='checked' id='slides_2'/>
+                <input type='radio' class='slider__input-radio' name='slides' id='slides_3'/>
+                <input type='radio' class='slider__input-radio' name='slides' id='slides_4'/>
+                <input type='radio' class='slider__input-radio' name='slides' id='slides_5'/>
+                <input type='radio' class='slider__input-radio' name='slides' id='slides_6'/>
+                <ul class='slider__item-list'>
+                    <li class='slider__item'>
+                        <div class='slider__img-wrapper'><img class='slider__img' src='http://lorempixel.com/720/500/' /></div>
+                    </li>
+                    <li class='slider__item'>
+                        <div class='slider__img-wrapper'><img class='slider__img' src='http://lorempixel.com/720/500/' /></div>
+                    </li>
+                    <li class='slider__item'>
+                        <div class='slider__img-wrapper'><img class='slider__img' src='http://lorempixel.com/720/500/' /></div>
+                    </li>
+                    <li class='slider__item'>
+                        <div class='slider__img-wrapper'><img class='slider__img' src='http://lorempixel.com/720/500/' /></div>
+                    </li>
+                    <li class='slider__item'>
+                        <div class='slider__img-wrapper'><img class='slider__img' src='http://lorempixel.com/720/500/' /></div>
+                    </li>
+                    <li class='slider__item'>
+                        <div class='slider__img-wrapper'><img class='slider__img' src='http://lorempixel.com/720/500/' /></div>
+                    </li>
+                </ul>
+                <div class='slider__arrows-list'>
+                    <label class='slider__arrow' for='slides_1'></label>
+                    <label class='slider__arrow' for='slides_2'></label>
+                    <label class='slider__arrow' for='slides_3'></label>
+                    <label class='slider__arrow' for='slides_4'></label>
+                    <label class='slider__arrow' for='slides_5'></label>
+                    <label class='slider__arrow' for='slides_6'></label>
+                </div>
+            </div>
+        </section>
+        <section class='content content--secondary'>
+            <div class='content__title-wrapper'>
+                <h1 class='content__title'>Local Sponsors</h1>
+            </div>
+            <div class='content__body-wrapper'>
+                <div class='content__body'>
+                    <p>Check out photos from our recent dinner at Gyspy Kitchen in Atlanta.</p>
+                </div>
+            </div>
         </section>
     </main>
     <footer class='footer'>
@@ -168,10 +206,10 @@
         </div>
     </footer>
     <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <p class='browserupgrade'>You are using an <strong>outdated</strong> browser. Please <a href='https://browsehappy.com/'>upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
     <!-- build:js js/bundle.js -->
-    <script src="js/app.js" charset="utf-8"></script>
+    <script src='js/app.js' charset='utf-8'></script>
     <!-- endbuild -->
 </body>
 </html>
