@@ -8,6 +8,45 @@ nextGen.ready = function(callback) {
   }
 };
 
+nextGen.createClassList = function(el, className) {
+  var classes = el.className.split(' ');
+  var existingIndex = classes.indexOf(className);
+
+  if (existingIndex >= 0)
+    classes.splice(existingIndex, 1);
+  else
+    classes.push(className);
+
+  return classes.join(' ');
+}
+
+nextGen.toggleMenu = function() {
+  var toggleButton = document.querySelector('.nav__button');
+  var navigation = document.querySelector('.nav__nav-bar');
+  toggleButton.addEventListener('click', function(e) {
+    if (toggleButton.classList) {
+      toggleButton.classList.toggle('nav__button--active')
+    } else {
+      toggleButton.className = nextGen.createClassList(toggleButton, 'nav__button--active');
+    }
+
+    if (navigation.classList) {
+      navigation.classList.toggle('nav__nav-bar--active')
+    } else {
+      navigation.className = nextGen.createClassList(navigation, 'nav__nav-bar--active');
+    }
+    e.preventDefault();
+  })
+}
+
+// $(document).ready(function(){
+//   $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
+//     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+//     e.preventDefault();
+//   });
+// });
+
+
 nextGen.buildGrid = function() {
   var items = Array.from(document.querySelectorAll('.city-picker__item'));
   var totalRows = Math.floor(items.length / 2.5);
@@ -44,4 +83,5 @@ nextGen.buildGrid = function() {
 
 nextGen.ready(function() {
   nextGen.buildGrid();
+  nextGen.toggleMenu();
 });

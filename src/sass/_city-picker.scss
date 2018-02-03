@@ -6,35 +6,42 @@
 .city-picker__item-image-wrapper {
   display: block;
 
+  &:before {
+    border: 1px solid black;
+    content: '';
+    opacity: 0;
+    height: 75%;
+    position: absolute;
+    right: 12%;
+    top: 12%;
+    width: 75%;
+    transform: rotate(45deg)
+  }
+
   &:focus,
   &:hover {
     &:before {
-      border: 1px solid black;
-      content: '';
-      height: 75%;
-      position: absolute;
-      right: 12%;
-      top: 12%;
-      width: 75%;
-      transform: rotate(45deg)
+      opacity: 1;
     }
+  }
+}
 
-    &:after {
-      content: '';
-      background-color: $color-seaweed;
-      height: 70%;
-      position: absolute;
-      transform: rotate(45deg);
-      right: 15%;
-      top: 15%;
-      width: 70%;
-    }
+.city-picker__item-image-wrapper--selected {
+  .city-picker__item-image {
+    opacity: 0.5;
+    position: relative;
+    z-index: 2;
+  }
 
-    .city-picker__item-image {
-      opacity: 0.5;
-      position: relative;
-      z-index: 2;
-    }
+  &:after {
+    content: '';
+    background-color: $color-seaweed;
+    height: 70%;
+    position: absolute;
+    transform: rotate(45deg);
+    right: 15%;
+    top: 15%;
+    width: 70%;
   }
 }
 

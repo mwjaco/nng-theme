@@ -22,14 +22,13 @@
 .social__item-list--mobile-nav {
 
   .social__item {
-    flex: 0 3em;
+    flex: 0 1 22%;
   }
 }
 
 
 .social__item-list--top-nav {
-  display: none;
-  flex-wrap: wrap;
+  display: none;  
   justify-content: flex-end;
 
   .social__item {
@@ -38,7 +37,11 @@
 }
 
 .social__item-list--footer {
-  justify-content: center;
+  justify-content: space-between;
+
+  .social__item {
+    flex: 0 1 24%;
+  }
 }
 
 .social__item {

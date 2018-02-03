@@ -46,7 +46,7 @@
   }
 }
 
-.nav__checkbox:checked ~ .nav__button {
+.nav__button--active {
   .nav__button-bar {
     background-color: $color-body-bg;
     opacity: 1;
@@ -112,7 +112,7 @@
     /* to stop flickering of text in safari */
   }
 
-  .nav__checkbox:checked ~ .nav__nav-bar {
+  .nav__nav-bar--active {
     transform: none;
   }
 }
