@@ -1,6 +1,7 @@
 .city-picker {
   grid-area: city-picker;
   margin-bottom: em(36);
+  overflow: hidden;
 }
 
 .city-picker__item-image-wrapper {
