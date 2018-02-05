@@ -23,29 +23,23 @@ nextGen.createClassList = function(el, className) {
 nextGen.toggleMenu = function() {
   var toggleButton = document.querySelector('.nav__button');
   var navigation = document.querySelector('.nav__nav-bar');
-  toggleButton.addEventListener('click', function(e) {
-    if (toggleButton.classList) {
-      toggleButton.classList.toggle('nav__button--active')
-    } else {
-      toggleButton.className = nextGen.createClassList(toggleButton, 'nav__button--active');
-    }
+  if (toggleButton) {
+    toggleButton.addEventListener('click', function(e) {
+      if (toggleButton.classList) {
+        toggleButton.classList.toggle('nav__button--active')
+      } else {
+        toggleButton.className = nextGen.createClassList(toggleButton, 'nav__button--active');
+      }
 
-    if (navigation.classList) {
-      navigation.classList.toggle('nav__nav-bar--active')
-    } else {
-      navigation.className = nextGen.createClassList(navigation, 'nav__nav-bar--active');
-    }
-    e.preventDefault();
-  })
+      if (navigation.classList) {
+        navigation.classList.toggle('nav__nav-bar--active')
+      } else {
+        navigation.className = nextGen.createClassList(navigation, 'nav__nav-bar--active');
+      }
+      e.preventDefault();
+    });
+  }
 }
-
-// $(document).ready(function(){
-//   $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
-//     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
-//     e.preventDefault();
-//   });
-// });
-
 
 nextGen.buildGrid = function() {
   var items = Array.from(document.querySelectorAll('.city-picker__item'));
