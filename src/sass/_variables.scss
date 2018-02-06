@@ -10,6 +10,7 @@ $color-seaweed: #82ca9c;
 $color-plum: #551a8b;
 
 $color-body-bg: $color-gray-lightest;
+$color-modal-bg: $color-black;
 
 // Fonts
 $browser-context: 21; 
@@ -19,6 +20,8 @@ $base-font-color: $color-black;
 $base-font-family: 'Josefin Sans', sans-serif;
 $base-font-size: #{$browser-context}px;
 
+$modal-font-color: $color-white;
+
 //
 @function em($pixels, $context: $browser-context) {
   @return #{$pixels/$context}em;
@@ -26,10 +29,12 @@ $base-font-size: #{$browser-context}px;
 
 $smaller-font-size: em(14.8);
 $larger-font-size: em(26);
+
 // Layouts and spacing
 $max-width: 1050px;
 $header-height-value: 95;
 $header-height: em($header-height-value);
+$header-offset: em($header-height-value + 48);
 $spacer: em($browser-context);
 $block-padding: $spacer;
 
@@ -37,7 +42,7 @@ $block-padding: $spacer;
 $base-border-size: 1px;
 $base-border-color: $color-gray-dark;
 $base-border: $base-border-size $base-border-color solid;
-
+$base-border-radius: 10px;
 // Nav
 $nav-button-bar-width: 33px;
 

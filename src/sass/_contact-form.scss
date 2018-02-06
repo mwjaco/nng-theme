@@ -1,0 +1,76 @@
+.contact-form__fade-screen {
+  bottom: 0;
+  background-color: rgba($color-black, 0.6);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  padding: $spacer;
+  position: fixed;
+  right: 0;
+  transition: opacity 0.25s ease;
+  top: 0;
+  visibility: hidden;
+  z-index: 9999;
+}
+
+.contact-form {
+  background-color: $color-modal-bg;
+  border-radius: $base-border-radius;
+  color: $modal-font-color;
+  display: flex;
+  flex-flow: row wrap;
+  overflow: auto;
+  padding: $spacer;
+  max-width: 840px;
+  top: 26px; // 3/5 * header-offset
+}
+
+.contact-form__close-btn {
+  position: absolute;
+  right: $spacer;
+  top: $spacer;
+}
+
+.contact-form__title,
+.contact-form__input-wrapper {
+  flex: 1 0 100%;
+}
+
+.contact-form__input-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: $spacer;
+}
+
+.contact-form__input {
+  -webkit-appearance: none;
+  font-size: $smaller-font-size;
+  padding: $smaller-font-size;
+}
+
+.contact-form__input--textarea {
+  height: em(200);
+}
+
+.contact-form__state {
+  display: none;
+}
+
+.contact-form__state:checked + .contact-form__fade-screen {
+  opacity: 1;
+  overflow: auto;
+  transition: opacity 0.25s ease;
+  visibility: visible;
+}
+
+// Body needs a modal-open class toggled on and off
+// bearing an overflow: hidden property
+
+@media (min-width: $device-width-small) {
+  .contact-form {
+    width: 45vw;
+    padding: 2em;
+    position: absolute;
+  }
+}

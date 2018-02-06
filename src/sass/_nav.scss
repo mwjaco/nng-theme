@@ -126,7 +126,7 @@
   .nav:hover .nav__nav-bar {
     height: auto;
     opacity: 1;
-    top: em($header-height-value + 48);
+    top: $header-offset;
   }
 
   .nav {

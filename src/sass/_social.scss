@@ -46,17 +46,18 @@
 
 .social__item {
   .social__item-icon,
-  a {
+  .social__item-target {
     height: 100%;
     width: 100%;
   }
 
-  a {
+  .social__item-target {
+    cursor: pointer;
     display: block;
     position: relative;
     text-decoration: none;
 
-    //Hack for making <a> clickable around SVG
+    //Hack for making .social__item-target clickable around SVG
     &:after {
       content: ""; 
       position: absolute; 
@@ -68,7 +69,7 @@
   }
 
   &:not(:last-child) {
-    a {
+    .social__item-target {
       margin-right: em(5);
     }
   }
