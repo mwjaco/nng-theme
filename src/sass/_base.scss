@@ -18,6 +18,10 @@ body {
   padding: $block-padding;
 }
 
+.body--modal-open {
+  overflow: hidden;
+}
+
 .header {
   display: grid;
   grid-area: header;

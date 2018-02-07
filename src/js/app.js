@@ -41,6 +41,26 @@ nextGen.toggleMenu = function() {
   }
 }
 
+nextGen.toggleModal = function() {
+  var toggleState = document.querySelector('.contact-form__state');
+  toggleState.addEventListener('change', function() {
+    if (this.checked) {
+      if (document.body.classList) {
+        document.body.classList.add('body--modal-open');
+      } else {
+        document.body.className += ' ' + 'body--modal-open';
+      }
+    } else {
+      debugger;
+      if (document.body.classList) {
+        document.body.classList.remove('body--modal-open');
+      } else {
+        document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + 'body--modal-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+      }
+    }
+  });
+}
+
 nextGen.buildGrid = function() {
   var items = Array.from(document.querySelectorAll('.city-picker__item'));
   var totalRows = Math.floor(items.length / 2.5);
@@ -78,4 +98,5 @@ nextGen.buildGrid = function() {
 nextGen.ready(function() {
   nextGen.buildGrid();
   nextGen.toggleMenu();
+  nextGen.toggleModal();
 });

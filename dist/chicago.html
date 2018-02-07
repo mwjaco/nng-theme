@@ -33,23 +33,23 @@
                 <li class='nav__item'>
                     <ul class='nav__item-list nav__item-list--social social__item-list--mobile-nav'>
                         <li class='social__item'>
-                            <a href='' title='Email'>
-                                <object type='image/svg+xml' data='img/email-white.svg' class='social__item-icon'></object>
-                            </a>
+                            <label class='social__item-target' for='contact-form-trigger'>
+                                <object type='image/svg+xml' data='img/email-white.svg' class='social__item-icon'></object>>
+                            </label>
                         </li>
                         <li class='social__item'>
-                            <a href='' title='Facebook'>
+                            <a class='social__item-target' href='' title='Facebook'>
                                 <object type='image/svg+xml' data='img/facebook-white.svg' class='social__item-icon'></object>
                             </a>
                         </li>
                         <li class='social__item'>
-                            <a href='' title='Instagram'>
+                            <a class='social__item-target' href='' title='Instagram'>
                                 <object type='image/svg+xml' data='img/instagram-white.svg' class='social__item-icon'></object>
                             </a>
                         </li>
                         <li class='social__item'>
-                            <a href='' title='YouTube'>
-                                <object type='image/svg+xml' data='img/youtube-square-white.svg' class='social__item-icon'></object>
+                            <a class='social__item-target' href='' title='YouTube'>
+                                <object type='image/svg+xml' data='img/youtube-square.svg' class='social__item-icon'></object>
                             </a>
                         </li>
                     </ul>
@@ -60,22 +60,22 @@
         <div class='social social--top-nav'>
             <ul class='social__item-list social__item-list--top-nav'>
                 <li class='social__item'>
-                    <a href='' title='Email'>
+                    <label class='social__item-target' for='contact-form-trigger'>
                         <object type='image/svg+xml' data='img/aiga_mail_bg-512.svg' class='social__item-icon'></object>
-                    </a>
+                    </label>
                 </li>
                 <li class='social__item'>
-                    <a href='' title='Facebook'>
+                    <a class='social__item-target' href='' title='Facebook'>
                         <object type='image/svg+xml' data='img/facebook.svg' class='social__item-icon'></object>
                     </a>
                 </li>
                 <li class='social__item'>
-                    <a href='' title='Instagram'>
+                    <a class='social__item-target' href='' title='Instagram'>
                         <object type='image/svg+xml' data='img/instagram.svg' class='social__item-icon'></object>
                     </a>
                 </li>
                 <li class='social__item'>
-                    <a href='' title='YouTube'>
+                    <a class='social__item-target' href='' title='YouTube'>
                         <object type='image/svg+xml' data='img/youtube-square.svg' class='social__item-icon'></object>
                     </a>
                 </li>
@@ -180,22 +180,22 @@
         <div class='social social--footer'>
             <ul class='social__item-list social__item-list--footer'>
                 <li class='social__item'>
-                    <a href='' title='Email'>
+                    <label class='social__item-target' for='contact-form-trigger'>
                         <object type='image/svg+xml' data='img/aiga_mail_bg-512.svg' class='social__item-icon'></object>
-                    </a>
+                    </label>
                 </li>
                 <li class='social__item'>
-                    <a href='' title='Facebook'>
+                    <a class='social__item-target' href='' title='Facebook'>
                         <object type='image/svg+xml' data='img/facebook.svg' class='social__item-icon'></object>
                     </a>
                 </li>
                 <li class='social__item'>
-                    <a href='' title='Instagram'>
+                    <a class='social__item-target' href='' title='Instagram'>
                         <object type='image/svg+xml' data='img/instagram.svg' class='social__item-icon'></object>
                     </a>
                 </li>
                 <li class='social__item'>
-                    <a href='' title='YouTube'>
+                    <a class='social__item-target' href='' title='YouTube'>
                         <object type='image/svg+xml' data='img/youtube-square.svg' class='social__item-icon'></object>
                     </a>
                 </li>
@@ -203,6 +203,37 @@
         </div>
         <div class='footer__legal-wrapper'>
             <p class='footer__legal'>(c) 2017 Nextwork Next Gen. All Rights Reserved | <a href=''>Terms and Conditions</a></p>
+        </div>
+        <input class='contact-form__state' id='contact-form-trigger' name='contact-form-trigger' type='checkbox' />
+        <div role='dialog' aria-labelledby='contact-form-title' aria-describedby='' class='contact-form__fade-screen'>
+            <div class='contact-form'>
+                <label class='contact-form__close-btn' for='contact-form-trigger'>X</label>
+                <h1 class='contact-form__title' id='contact-form-title'>Connect</h1>
+                <label class='contact-form__input-wrapper'>
+                    First Name*
+                    <input class='contact-form__input' type='text' />
+                </label>
+                <label class='contact-form__input-wrapper'>
+                    Last Name*
+                    <input class='contact-form__input' type='text' />
+                </label>
+                <label class='contact-form__input-wrapper'>
+                    Phone Number*
+                    <input class='contact-form__input' type='text' />
+                </label>
+                <label class='contact-form__input-wrapper'>
+                    Email Address*
+                    <input class='contact-form__input' type='text' />
+                </label>
+                <label class='contact-form__input-wrapper'>
+                    Company*
+                    <input class='contact-form__input' type='text' />
+                </label>
+                <label class='contact-form__input-wrapper'>
+                    Note
+                    <textarea class='contact-form__input contact-form__input--textarea'></textarea>
+                </label>
+            </div>
         </div>
     </footer>
     <!--[if lte IE 9]>

@@ -64,9 +64,6 @@
   visibility: visible;
 }
 
-// Body needs a modal-open class toggled on and off
-// bearing an overflow: hidden property
-
 @media (min-width: $device-width-small) {
   .contact-form {
     width: 45vw;
