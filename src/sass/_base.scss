@@ -43,38 +43,14 @@ body {
   }
 }
 
-.content__title-wrapper {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
 .content__title {
   margin: 0;
 }
 
 .cta-button__wrapper {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-a.cta-button,
-button.cta-button,
-.cta-button {
-  background-color: $color-black;
-  color: $color-white;
-  cursor: pointer;
-  font-size: $larger-font-size;
-  padding: em(12);
-  text-decoration: none;
-  text-transform: uppercase;
-  &:not(:first-of-type) {
-    margin-top: em(10);
-  }
-  &:hover {
-    color: $color-white;
-  }
+  //flex-direction: column;
+  justify-content: center;
 }
 
 .hr {

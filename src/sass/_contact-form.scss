@@ -41,6 +41,10 @@
   display: inline-flex;
   flex-direction: column;
   margin-bottom: $spacer;
+
+  > span {
+    display: inline-flex;
+  }
 }
 
 .contact-form__input {
@@ -62,6 +66,33 @@
   overflow: auto;
   transition: opacity 0.25s ease;
   visibility: visible;
+}
+
+// Really ugly code to fix the plug-in wrapper element... sorry
+
+.wpcf7,
+.wpcf7 p, 
+.wpcf7 input:not([type=submit]),
+.wpcf7 textarea {
+  margin-top: 0;
+  width: 100%;
+  > br {
+    display: none;
+  }
+}
+
+.wpcf7,
+.wpcf7 p { // 
+  display: flex;
+}
+
+.wpcf7 p:first-of-type,
+.wpcf7 {
+  flex-direction: column;
+}
+
+.wpcf7 p:last-of-type {
+  justify-content: center;
 }
 
 @media (min-width: $device-width-small) {

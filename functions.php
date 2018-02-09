@@ -1,4 +1,7 @@
 <?php
+// Add support for post thumbnails, a.k.a. "Featured Images" or "Logos"
+add_theme_support( 'post-thumbnails' ); 
+
 // Enqueue JavaScript and stylesheet at the same time
 function nng_theme_scripts() {
     wp_enqueue_style( 'google_fonts', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600i,700', false ); 
@@ -33,13 +36,12 @@ function add_social_to_nav( $items, $args ) {
   }
 
   if ( function_exists( 'wpse_return_template_part' ) ) {
-    $social_items = wpse_return_template_part( 'component-social-white');
+    $social_items = wpse_return_template_part( 'component-social-mobile-nav');
   }
 
   $items .= "<li class='nav__item'>"
-            ."<ul class='nav__item-list nav__item-list--social social__item-list--mobile-nav'>"
             .$social_items
-            ."</ul></li>";
+            ."</li>";
   return $items;
 }
 
