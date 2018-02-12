@@ -61,8 +61,11 @@ nextGen.toggleModal = function() {
   });
 }
 
-nextGen.buildGrid = function() {
+nextGen.buildGrid = function() {  
   var items = Array.from(document.querySelectorAll('.city-picker__item'));
+  if (items.length === 0) {
+    return;
+  }
   var totalRows = Math.floor(items.length / 2.5);
   var i;
 
@@ -95,7 +98,44 @@ nextGen.buildGrid = function() {
   }
 };
 
+nextGen.buildLandingPage = function() {
+  // Round up all the items excluding the big diamond
+  var items = Array.from(document.querySelectorAll('.landing__item:not(:first-of-type)'));
+  if (items.length === 0) {
+    return;
+  }
+  var bottomLineBreak = document.querySelector('.landing__line-break-wrapper--bottom');
+  var totalRows = Math.floor(items.length / 3);
+  var i;
+
+  for (i = 0; i < totalRows; i++) {
+    var shiftOddRowsBy = 4;
+    var shiftEvenRowsBy = 5;
+    shiftOddRowsBy = shiftOddRowsBy + (i * 2);
+    shiftEvenRowsBy = shiftEvenRowsBy + (i * 2);
+
+    // Arrange first two of every three into odd rows
+    items.slice(3 * i, 3 * i + 2)
+      .forEach(function(item) {
+        item.style.gridRow = shiftOddRowsBy + '/ span 2';
+      });
+
+    // Arrange the third of every three into even rows;
+    items.slice(3 * i + 2, 3 * i + 3)
+      .forEach(function(item) {
+        item.style.gridRow = shiftEvenRowsBy + ' / span 2';
+      });
+  }
+
+  if (items.length % 3 === 0) {
+    bottomLineBreak.style.display = 'none';
+  } else {
+    bottomLineBreak.style.gridRow = totalRows + 3 + '/ -1';
+  }
+};
+
 nextGen.ready(function() {
+  nextGen.buildLandingPage();
   nextGen.buildGrid();
   nextGen.toggleMenu();
   nextGen.toggleModal();

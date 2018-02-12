@@ -19,43 +19,51 @@
           <?php endwhile; ?>
         </section>
         <?php
-          wp_reset_postdata();
+          //wp_reset_postdata();        
           $args = array('post_type' => 'sponsor', 'order' => 'ASC');
+          $sponsors = new WP_Query( $args );
+          if ( $sponsors->have_posts() ) :
         ?>
         <section class='sponsors'>
           <div class='sponsors__wrapper'>
             <ul class='sponsors__item-list'>
+            <?php while ( $sponsors->have_posts() ) : $sponsors->the_post();
+            ?>    
               <?php
-                $sponsorquery = new WP_Query( $args );
-                if ($sponsorquery->have_posts()) : while($sponsorquery->have_posts()) : $sponsorquery->the_post();
+              $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+              $sponsor_url = get_field('link');
+              $sponsor_name = get_the_title();
+                include(locate_template('component-sponsors.php'));
               ?>
-                <?php
-                  $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
-                ?>
-                <li class='sponsors__item'>
-                  <a class='sponsors__item-img-wrapper' title='<?php the_title(); ?>' href='<?php the_field('link'); ?>'>
-                    <img class='sponsors__item-img' alt='Cambria' src='<?php echo $featured_img_url; ?>' />
-                  </a>
-                </li>
-               <?php endwhile; else : ?>
-                No sponsors found.
-               <?php endif; ?>
+            <?php endwhile; ?>
             </ul>
           </div>
           <div class='cta-button__wrapper'>
-              <a class='cta-button'>Apply to Be a Sponsor</a>
+            <label role='button' for='contact-form-trigger--sponsor' class='cta-button'>Apply to Be a Sponsor</label>
           </div>
+          <?php get_template_part('component-contact-sponsor'); ?>
         </section>
-        <section class='content content--secondary'>
-            <hr class='hr' />
-            <div class='content__title-wrapper content__title-wrapper--badge'>
-                <img class='content__title--badge' src='<?php bloginfo('template_directory'); ?>/dist/img/Mission.png' alt='Mission' />
-            </div>
-            <div class='content__body-wrapper'>
-                <div class='content__body'>
-                    <p>Network Next Gen connects those in their 20's - 30's in the same industry. We host 4 dinners a year to network and talk about business, leadership, and how to grow. Invite only.</p>
-                </div>
-            </div>
-        </section>
+        <?php endif; ?>
+        <?php
+          wp_reset_postdata();
+          while( have_posts() ) : the_post(); ?>
+          <?php
+            $show_secondary_content = get_field('show_secondary_content');
+            if ($show_secondary_content) :
+        ?>
+          <section class='content content--secondary'>
+              <hr class='hr' />
+              <div class='content__title-wrapper'>
+                  <?php the_field('secondary_title'); ?>
+              </div>
+              <div class='content__body-wrapper'>
+                  <div class='content__body'>
+                      <?php the_field('secondary_content'); ?>
+                  </div>
+              </div>
+          </section>
+        <?php endif; ?>
+        <?php endwhile; ?>
+
     </main>
 <?php get_footer(); ?>

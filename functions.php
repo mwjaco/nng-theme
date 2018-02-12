@@ -4,9 +4,13 @@ add_theme_support( 'post-thumbnails' );
 
 // Enqueue JavaScript and stylesheet at the same time
 function nng_theme_scripts() {
+    
+    $style_path = get_template_directory_uri() . '/dist/css/style.css';
+    $script_path = get_template_directory_uri() . '/dist/js/bundle.js';
+
     wp_enqueue_style( 'google_fonts', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600i,700', false ); 
-    wp_enqueue_style( 'style_css', get_stylesheet_uri() );
-    wp_enqueue_script( 'bundle_js', get_template_directory_uri() . '/dist/js/bundle.js', array(), '1.0.0', true );
+    wp_enqueue_style( 'style_css', $style_path, array(), null );
+    wp_enqueue_script( 'bundle_js', $script_path, array(), null, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'nng_theme_scripts' );

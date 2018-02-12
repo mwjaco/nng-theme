@@ -18,6 +18,21 @@
   padding: $spacer;  
 }
 
+.content__img-wrapper {
+  display: flex;
+  margin-bottom: em(36);
+}
+
+.content__img-wrapper--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.content__img--medium {
+  height: auto;
+  max-width: 300px;
+}
+
 @media (min-width: $device-width-small) {
   .content .hr {
     grid-column: 3 / 5;
