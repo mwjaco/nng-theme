@@ -7,9 +7,13 @@
             </li>
             <?php
                 wp_reset_postdata();
-                $args = array('post_type' => 'location', 'order' => 'ASC', 'posts_per_page' => '-1');
+                $args = array(
+                    'post_type' => 'location',
+                    'order' => 'ASC',
+                    'posts_per_page' => '14',
+                    'paged' => get_query_var('paged') ? get_query_var('paged') : 1
+                );
                 $locations = new WP_Query( $args );
-
 
               if ( $locations->have_posts() ) : while ( $locations->have_posts() ) : $locations->the_post();
             ?>
@@ -30,6 +34,7 @@
         <div role='presentation' class='landing__line-break-wrapper landing__line-break-wrapper--bottom'>
             <span class='landing__line-break'></span>
         </div>
+        <?php landing_page_paginator(); ?>
     </section>
 </main>
 <?php get_footer(); ?>

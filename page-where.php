@@ -14,7 +14,12 @@
         </section>
         <?php
           wp_reset_postdata();
-          $args = array('post_type' => 'location', 'order' => 'ASC');
+          $args = array(
+            'post_type' => 'location',
+            'order' => 'ASC',
+            'posts_per_page' => '10 ',
+            'paged' => get_query_var('paged') ? get_query_var('paged') : 1
+          );
           $locations = new WP_Query( $args );
           if ( $locations->have_posts() ) :
         ?>
@@ -30,6 +35,7 @@
             ?>
           <?php endwhile; ?>
           </ul>
+          <?php where_page_paginator(); ?>
         </section>
         <?php endif; ?>
     </main>

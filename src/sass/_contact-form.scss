@@ -44,6 +44,7 @@
 
   > span {
     display: inline-flex;
+    flex-wrap: wrap;
   }
 }
 
@@ -93,6 +94,16 @@
 
 .wpcf7 p:last-of-type {
   justify-content: center;
+}
+
+span.wpcf7-not-valid-tip {
+  font-size: $smaller-font-size;
+  margin: $smaller-font-size 0;
+}
+
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing {
+  border: $base-border-size solid $color-white;
 }
 
 @media (min-width: $device-width-small) {

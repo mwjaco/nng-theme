@@ -21,46 +21,44 @@
         </ul>
       </section>
       <?php endif; ?>
+      <?php
+        while( have_posts() ) : the_post();
+        global $post;
+        $gallery = get_post_gallery($post->ID, false);
+        if ($gallery) :
+      ?>
       <section class='slider'>
-          <div class='slider__wrapper'>
-              <input type='radio' class='slider__input-radio' name='slides' id='slides_1'/>
-              <input type='radio' class='slider__input-radio' name='slides' checked='checked' id='slides_2'/>
-              <input type='radio' class='slider__input-radio' name='slides' id='slides_3'/>
-              <input type='radio' class='slider__input-radio' name='slides' id='slides_4'/>
-              <input type='radio' class='slider__input-radio' name='slides' id='slides_5'/>
-              <input type='radio' class='slider__input-radio' name='slides' id='slides_6'/>
-              <ul class='slider__item-list'>
-                  <li class='slider__item'>
-                      <div class='slider__img-wrapper'><img class='slider__img' src='https://loremflickr.com/720/500/barcelona' /></div>
-                  </li>
-                  <li class='slider__item'>
-                      <div class='slider__img-wrapper'><img class='slider__img' src='https://loremflickr.com/720/500/austin' /></div>
-                  </li>
-                  <li class='slider__item'>
-                      <div class='slider__img-wrapper'><img class='slider__img' src='https://loremflickr.com/720/500/london' /></div>
-                  </li>
-                  <li class='slider__item'>
-                      <div class='slider__img-wrapper'><img class='slider__img' src='https://loremflickr.com/720/500/chicago' /></div>
-                  </li>
-                  <li class='slider__item'>
-                      <div class='slider__img-wrapper'><img class='slider__img' src='https://loremflickr.com/720/500/nyc' /></div>
-                  </li>
-                  <li class='slider__item'>
-                      <div class='slider__img-wrapper'><img class='slider__img' src='https://loremflickr.com/720/500/miami' /></div>
-                  </li>
-              </ul>
-              <div class='slider__arrows-list'>
-                  <label class='slider__arrow' for='slides_1'></label>
-                  <label class='slider__arrow' for='slides_2'></label>
-                  <label class='slider__arrow' for='slides_3'></label>
-                  <label class='slider__arrow' for='slides_4'></label>
-                  <label class='slider__arrow' for='slides_5'></label>
-                  <label class='slider__arrow' for='slides_6'></label>
-              </div>
-          </div>
+        <div class='slider__wrapper'>
+          <?php
+            $gallery_attachment_ids = explode( ',', $gallery['ids'] );
+            $i = 0;
+            foreach ($gallery_attachment_ids as $id) {
+              $checked = $i === 0 ? 'checked' : '';
+              echo '<input class="slider__input-radio" '. $checked .' type="radio" name="slides" id="slides_'.$id.'" />';
+              $i++;
+            }
+          ?>
+            <ul class='slider__item-list'>
+              <?php
+                foreach ( $gallery['src'] as $src ) {
+                  echo '<li class="slider__item"><div class="slider__img-wrapper">';
+                  echo '<img class="slider__img" src="'. $src .'" />';
+                  echo '</div></li>';
+                }
+              ?>
+            </ul>
+            <div class='slider__arrows-list'>
+                <?php
+                  $gallery_attachment_ids = explode( ',', $gallery['ids'] );
+                  foreach ($gallery_attachment_ids as $id) {
+                      echo "<label class='slider__arrow' for='slides_".$id."'></label>";
+                  }
+                ?>
+            </div>
+        </div>
       </section>
+      <?php endif; ?>
       <section class='content content--secondary'>
-        <?php while( have_posts() ) : the_post(); ?>
         <div class='content__body-wrapper'>
             <div class='content__title-wrapper'>
                 <h1 class='content__title'><?php the_field('content_title'); ?></h1>
@@ -69,7 +67,7 @@
                 <?php the_content(); ?>
             </div>
         </div>
-        <?php endwhile; ?>
       </section>
+      <?php endwhile; ?>
     </main>
 <?php get_footer(); ?>

@@ -42,6 +42,13 @@ nextGen.toggleMenu = function() {
 }
 
 nextGen.toggleModal = function() {
+  var modals = document.querySelectorAll('.contact-form');
+  Array.prototype.forEach.call(modals, function(modal) {
+    modal.addEventListener('click', function(e) {
+      e.stopPropagation();
+    })
+  })
+
   var toggleState = document.querySelector('.contact-form__state');
   toggleState.addEventListener('change', function() {
     if (this.checked) {
@@ -51,13 +58,31 @@ nextGen.toggleModal = function() {
         document.body.className += ' ' + 'body--modal-open';
       }
     } else {
-      debugger;
       if (document.body.classList) {
         document.body.classList.remove('body--modal-open');
       } else {
         document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + 'body--modal-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
       }
     }
+  });
+}
+
+nextGen.fadeScreen = function() {
+  var toggleStates = document.querySelectorAll('.contact-form__state');
+  var fadeScreens = document.querySelectorAll('.contact-form__fade-screen');
+  Array.prototype.forEach.call(fadeScreens, function(fadeScreen) {
+    fadeScreen.addEventListener('click', function() {
+      Array.prototype.forEach.call(toggleStates, function(toggle) {
+        toggle.checked = false;
+      });
+
+
+      if (document.body.classList) {
+        document.body.classList.remove('body--modal-open');
+      } else {
+        document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + 'body--modal-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+      }
+    });
   });
 }
 
@@ -105,7 +130,7 @@ nextGen.buildLandingPage = function() {
     return;
   }
   var bottomLineBreak = document.querySelector('.landing__line-break-wrapper--bottom');
-  var totalRows = Math.floor(items.length / 3);
+  var totalRows = Math.floor(items.length / 1.5) || 1;
   var i;
 
   for (i = 0; i < totalRows; i++) {
@@ -135,6 +160,7 @@ nextGen.buildLandingPage = function() {
 };
 
 nextGen.ready(function() {
+  nextGen.fadeScreen();
   nextGen.buildLandingPage();
   nextGen.buildGrid();
   nextGen.toggleMenu();
