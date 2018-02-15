@@ -49,21 +49,23 @@ nextGen.toggleModal = function() {
     })
   })
 
-  var toggleState = document.querySelector('.contact-form__state');
-  toggleState.addEventListener('change', function() {
-    if (this.checked) {
-      if (document.body.classList) {
-        document.body.classList.add('body--modal-open');
+  var toggleStates = document.querySelectorAll('.contact-form__state');
+  Array.prototype.forEach.call(toggleStates, function(toggleState) {
+    toggleState.addEventListener('change', function() {
+      if (this.checked) {
+        if (document.body.classList) {
+          document.body.classList.add('body--modal-open');
+        } else {
+          document.body.className += ' ' + 'body--modal-open';
+        }
       } else {
-        document.body.className += ' ' + 'body--modal-open';
+        if (document.body.classList) {
+          document.body.classList.remove('body--modal-open');
+        } else {
+          document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + 'body--modal-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
       }
-    } else {
-      if (document.body.classList) {
-        document.body.classList.remove('body--modal-open');
-      } else {
-        document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + 'body--modal-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-      }
-    }
+    });
   });
 }
 
@@ -155,7 +157,7 @@ nextGen.buildLandingPage = function() {
   if (items.length % 3 === 0) {
     bottomLineBreak.style.display = 'none';
   } else {
-    bottomLineBreak.style.gridRow = totalRows + 3 + '/ -1';
+    bottomLineBreak.style.gridRow = totalRows + 4 + '/ -1';
   }
 };
 

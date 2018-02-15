@@ -120,85 +120,85 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
 }
 
 // Landing Page Pagination
-function landing_page_paginator() {
+// function landing_page_paginator() {
 
-    if( is_singular() )
-        return;
+//     if( is_singular() )
+//         return;
 
-    $args = array(
-        'post_type' => 'location',
-        'order' => 'ASC',
-        'posts_per_page' => '14'
-    );
+//     $args = array(
+//         'post_type' => 'location',
+//         'order' => 'ASC',
+//         'posts_per_page' => 14
+//     );
 
-    $wp_query = new WP_Query($args); 
+//     $wp_query = new WP_Query($args); 
  
-    /** Stop execution if there's only 1 page */
-    if( $wp_query->max_num_pages <= 1 )
-        return;
+//     /** Stop execution if there's only 1 page */
+//     if( $wp_query->max_num_pages <= 1 )
+//         return;
  
-    $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-    $max   = intval( $wp_query->max_num_pages );
-    /** Add current page to the array */
-    if ( $paged >= 1 )
-        $links[] = $paged;
+//     $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+//     $max   = intval( $wp_query->max_num_pages );
+//     /** Add current page to the array */
+//     if ( $paged >= 1 )
+//         $links[] = $paged;
  
-    /** Add the pages around the current page to the array */
-    if ( $paged >= 3 ) {
-        $links[] = $paged - 1;
-        $links[] = $paged - 2;
-    }
+//     /** Add the pages around the current page to the array */
+//     if ( $paged >= 3 ) {
+//         $links[] = $paged - 1;
+//         $links[] = $paged - 2;
+//     }
  
-    if ( ( $paged + 2 ) <= $max ) {
-        $links[] = $paged + 2;
-        $links[] = $paged + 1;
-    }
+//     if ( ( $paged + 2 ) <= $max ) {
+//         $links[] = $paged + 2;
+//         $links[] = $paged + 1;
+//     }
  
-    echo '<div class="pagination__wrapper"><ul class="pagination">' . "\n";
+//     echo '<div class="pagination__wrapper pagination__wrapper--landing"><ul class="pagination">' . "\n";
  
-    /** Previous Post Link */
-    if ( get_previous_posts_link() )
-        printf( '<li class="pagination__item">%s</li>' . "\n", get_previous_posts_link('prev') );
+//     /** Previous Post Link */
+//     if ( get_previous_posts_link() )
+//         printf( '<li class="pagination__item">%s</li>' . "\n", get_previous_posts_link('prev') );
  
-    /** Link to first page, plus ellipses if necessary */
-    if ( ! in_array( 1, $links ) ) {
-        $class = 1 == $paged ? ' class="pagination__item pagination__item--active"' : ' class="pagination__item"';
+//     /** Link to first page, plus ellipses if necessary */
+//     if ( ! in_array( 1, $links ) ) {
+//         $class = 1 == $paged ? ' class="pagination__item pagination__item--active"' : ' class="pagination__item"';
  
-        printf( '<li%s><a class="pagination__item-link" href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
+//         printf( '<li%s><a class="pagination__item-link" href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
  
-        if ( ! in_array( 2, $links ) )
-            echo '<li class="pagination__item">…</li>';
-    }
+//         if ( ! in_array( 2, $links ) )
+//             echo '<li class="pagination__item">…</li>';
+//     }
  
-    /** Link to current page, plus 2 pages in either direction if necessary */
-    sort( $links );
-    foreach ( (array) $links as $link ) {
-        $class = $paged == $link ? ' class="pagination__item pagination__item--active"' : ' class="pagination__item"';
-        printf( '<li%s><a class="pagination__item-link" href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
-    }
+//     /** Link to current page, plus 2 pages in either direction if necessary */
+//     sort( $links );
+//     foreach ( (array) $links as $link ) {
+//         $class = $paged == $link ? ' class="pagination__item pagination__item--active"' : ' class="pagination__item"';
+//         printf( '<li%s><a class="pagination__item-link" href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
+//     }
  
-    /** Link to last page, plus ellipses if necessary */
-    if ( ! in_array( $max, $links ) ) {
-        if ( ! in_array( $max - 1, $links ) )
-            echo '<li class="pagination__item">…</li>' . "\n";
+//     /** Link to last page, plus ellipses if necessary */
+//     if ( ! in_array( $max, $links ) ) {
+//         if ( ! in_array( $max - 1, $links ) )
+//             echo '<li class="pagination__item">…</li>' . "\n";
  
-        $class = $paged == $max ? ' class="pagination__item pagination__item--active"' : ' class="pagination__item"';
-        printf( '<li%s><a class="pagination__item-link" href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
-    }
+//         $class = $paged == $max ? ' class="pagination__item pagination__item--active"' : ' class="pagination__item"';
+//         printf( '<li%s><a class="pagination__item-link" href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
+//     }
  
-    /** Next Post Link */
-    if ( get_next_posts_link() )
-        printf( '<li class="pagination__item">%s</li>' . "\n", get_next_posts_link('next') );
+//     /** Next Post Link */
+//     if ( get_next_posts_link() )
+//         printf( '<li class="pagination__item">%s</li>' . "\n", get_next_posts_link('next') );
  
-    echo '</ul></div>' . "\n";
-}
+//     echo '</ul></div>' . "\n";
+// }
 
 // Where Page Pagination
 function where_page_paginator() {
     $args = array(
         'post_type' => 'location',
         'order' => 'ASC',
-        'posts_per_page' => '10'
+        'posts_per_page' => 8
     );
 
     $where_page_query = new WP_Query($args); 

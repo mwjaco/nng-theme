@@ -6,7 +6,7 @@
 }
 
 .nav__nav-bar {
-  z-index: 2;
+  z-index: 3;
 }
 
 .nav__checkbox {
@@ -24,7 +24,7 @@
   flex-direction: column;
   grid-column: 1 / 2;
   position: relative;
-  z-index: 3;
+  z-index: 4;
 
   &:focus {
     outline: 0;
@@ -43,7 +43,7 @@
               background-color 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               opacity 0.55s ease;
   width: $nav-button-bar-width;
-  z-index: 3;
+  z-index: 5;
 
   &:first-child {
     transform-origin: 0% 0%;

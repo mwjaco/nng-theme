@@ -46,11 +46,14 @@
 }
 
 .slider__img {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
+  // position: absolute;
+  // top: 0px;
+  // left: 0px;
+  // height: 100%;
+  // width: 100%;
+  margin: 0;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 .slider__input-radio:nth-of-type(10):checked ~ .slider__item-list .slider__item:first-of-type {

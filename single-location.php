@@ -2,7 +2,11 @@
     <main class='main main--page'>
       <?php
         wp_reset_postdata();
-        $args = array('post_type' => 'location', 'order' => 'ASC');
+        $args = array(
+          'post_type' => 'location',
+          'order' => 'ASC',
+          'posts_per_page' => 8
+        );
         $locations = new WP_Query( $args );
         if ( $locations->have_posts() ) :
       ?>
@@ -19,6 +23,12 @@
           ?>
         <?php endwhile; ?>
         </ul>
+        <?php
+            $count = $locations->found_posts;
+            if ($count > 8 ) {
+              echo '<div class="cta-button__wrapper"><a href='.get_permalink(get_page_by_path('where')).' class="cta-button">View all cities</a></div>';
+            }
+        ?>
       </section>
       <?php endif; ?>
       <?php
@@ -30,7 +40,8 @@
       <section class='slider'>
         <div class='slider__wrapper'>
           <?php
-            $gallery_attachment_ids = explode( ',', $gallery['ids'] );
+            //$all_gallery_attachment_ids = explode( ',', $gallery['ids']);
+            $gallery_attachment_ids = explode( ',', $gallery['ids']);
             $i = 0;
             foreach ($gallery_attachment_ids as $id) {
               $checked = $i === 0 ? 'checked' : '';
@@ -41,9 +52,11 @@
             <ul class='slider__item-list'>
               <?php
                 foreach ( $gallery['src'] as $src ) {
-                  echo '<li class="slider__item"><div class="slider__img-wrapper">';
+                  echo '<li class="slider__item">';
+                  //echo '<div class="slider__img-wrapper" style="background-image:url('.$src.');">';
                   echo '<img class="slider__img" src="'. $src .'" />';
-                  echo '</div></li>';
+                  //echo '</div>';
+                  echo '</li>';
                 }
               ?>
             </ul>

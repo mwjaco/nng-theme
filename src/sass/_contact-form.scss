@@ -27,9 +27,28 @@
 }
 
 .contact-form__close-btn {
+  height: 1.5em;
   position: absolute;
   right: $spacer;
   top: $spacer;
+  width: 1.5em;
+
+  &::after,
+  &::before {
+    background-color: $color-white;
+    bottom: 0;
+    content: '';
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    transform: rotate(45deg);
+    width: 0.15em;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
 }
 
 .contact-form__title,
@@ -101,9 +120,11 @@ span.wpcf7-not-valid-tip {
   margin: $smaller-font-size 0;
 }
 
-div.wpcf7-validation-errors,
-div.wpcf7-acceptance-missing {
-  border: $base-border-size solid $color-white;
+div.wpcf7-response-output.wpcf7-validation-errors,
+div.wpcf7-response-output.wpcf7-acceptance-missing {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: $device-width-small) {

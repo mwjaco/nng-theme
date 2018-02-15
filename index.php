@@ -10,7 +10,7 @@
                 $args = array(
                     'post_type' => 'location',
                     'order' => 'ASC',
-                    'posts_per_page' => '14',
+                    'posts_per_page' => 8,
                     'paged' => get_query_var('paged') ? get_query_var('paged') : 1
                 );
                 $locations = new WP_Query( $args );
@@ -23,7 +23,7 @@
                 $location_name = get_the_title();
                   include(locate_template('component-landing-item.php'));
                 ?>
-            <?php endwhile; endif; ?>
+            <?php endwhile; ?>
         </ul>
         <div role='presentation' class='landing__line-break-wrapper landing__line-break-wrapper--right'>
             <span class='landing__line-break landing__line-break--right'></span>
@@ -32,9 +32,15 @@
             <span class='landing__line-break landing__line-break--left'></span>
         </div>
         <div role='presentation' class='landing__line-break-wrapper landing__line-break-wrapper--bottom'>
-            <span class='landing__line-break'></span>
+            <span class='landing__line-break landing__line-break--bottom'></span>
         </div>
-        <?php landing_page_paginator(); ?>
+        <?php
+            $count = $locations->found_posts;
+            if ($count > 8 ) {
+                echo '<div class="cta-button__wrapper cta-button__wrapper--landing"><a href='.get_permalink(get_page_by_path('where')).' class="cta-button">View all cities</a></div>';
+            }
+        ?>
+        <?php endif; ?>
     </section>
 </main>
 <?php get_footer(); ?>

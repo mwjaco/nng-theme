@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.pagination__wrapper--landing {
+  grid-column: 1 / -1;
+}
+
 .pagination {
   display: flex;
   list-style: none;

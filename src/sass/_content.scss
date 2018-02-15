@@ -1,5 +1,12 @@
+.content__title {
+  text-align: center;
+}
+
 .content__title-wrapper {
+  align-items: center;
+  display: flex;
   grid-column: 1 / -1;
+  justify-content: center;
 }
 
 .content__title-wrapper--badge {

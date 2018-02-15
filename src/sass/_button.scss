@@ -1,11 +1,9 @@
-.content__title-wrapper {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
 .cta-button__wrapper--column {
   flex-direction: column;
+}
+
+.cta-button__wrapper--landing {
+  grid-column: 1 / -1;
 }
 
 a.cta-button,

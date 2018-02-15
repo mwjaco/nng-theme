@@ -13,11 +13,11 @@
           <?php endwhile; ?>
         </section>
         <?php
-          wp_reset_postdata();
+          //wp_reset_postdata();
           $args = array(
             'post_type' => 'location',
             'order' => 'ASC',
-            'posts_per_page' => '10 ',
+            'posts_per_page' => 8,
             'paged' => get_query_var('paged') ? get_query_var('paged') : 1
           );
           $locations = new WP_Query( $args );
