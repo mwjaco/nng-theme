@@ -92,18 +92,17 @@
   }
 
   .landing__line-break-wrapper--left {
-    flex-direction: column;
+    display: grid;
     grid-column: 1 / 4;
-    grid-row: 5 / 6;
+    grid-row: 5 / 7;
+    grid-template-rows: repeat(8, 1fr);
   }
 
   .landing__line-break-wrapper--bottom {
-    border-bottom: 0;
-    border-left: $base-border;
-    border-right: 0;
-    border-top: $base-border;
+    display: grid;
     grid-column: 9 / 10;
     grid-row: span 1 / -1;
+    grid-template-rows: repeat(4, 1fr);
   }
 
   .landing__line-break {
@@ -116,8 +115,16 @@
   }
 
   .landing__line-break--left {
-    flex: 0 0 75%;
+    grid-row: 4 / 6;
     border-top: $base-border;
     border-right: $base-border;
+  }
+
+  .landing__line-break--bottom {
+    border-bottom: 0;
+    border-left: $base-border;
+    border-right: 0;
+    border-top: $base-border;
+    grid-row: 2 / -1;
   }
 }

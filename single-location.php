@@ -40,7 +40,7 @@
       <section class='slider'>
         <div class='slider__wrapper'>
           <?php
-            $gallery_attachment_ids = explode( ',', $gallery['ids'] );
+            $gallery_attachment_ids = explode( ',', $gallery['ids']);
             $i = 0;
             foreach ($gallery_attachment_ids as $id) {
               $checked = $i === 0 ? 'checked' : '';

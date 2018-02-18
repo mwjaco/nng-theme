@@ -157,7 +157,7 @@ nextGen.buildLandingPage = function() {
   if (items.length % 3 === 0) {
     bottomLineBreak.style.display = 'none';
   } else {
-    bottomLineBreak.style.gridRow = totalRows + 3 + '/ -1';
+    bottomLineBreak.style.gridRow = totalRows + 4 + '/ -1';b816c6fb72bea9b1f12f9ae74df6d7301701786c
   }
 };
 

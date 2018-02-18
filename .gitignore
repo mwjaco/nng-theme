@@ -1,5 +1,5 @@
 node_modules/
-
+sftp-config.json
 *.log
 wp-config.php
 wp-content/advanced-cache.php

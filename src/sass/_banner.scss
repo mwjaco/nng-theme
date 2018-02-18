@@ -1,8 +1,9 @@
 .banner {
-  display: grid;
-  grid-area: banner;
-  grid-gap: 4px;
-  grid-template-columns: repeat(8, 1fr);
+  margin-bottom: $spacer;
+}
+
+.banner,
+.banner__link {
   margin-bottom: $spacer;
 }
 
@@ -13,6 +14,20 @@
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-row: banner-start;
+}
+
+.banner__link,
+.banner__wrapper {
+  display: grid;
+  grid-column: 1 / span 8;
+  grid-row: banner-start;
+}
+
+.banner__wrapper {
+  
+  grid-gap: 3px;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   list-style: none;
   margin: 0;
   padding: 0;
