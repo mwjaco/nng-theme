@@ -1,0 +1,27 @@
+.sponsors {
+  grid-column: 1 / -1;
+  padding: $spacer;
+}
+
+.sponsors__item-list {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sponsors__item {
+  align-items: center;
+  display: flex;
+  flex: 0 0 21%;
+  justify-content: center;
+  margin-bottom: em(36);
+}
+
+.sponsors__item-img {
+  margin: 0 auto;
+  max-width: 100%;
+}

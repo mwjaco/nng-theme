@@ -1,0 +1,52 @@
+// Colors
+$color-black: #000000;
+$color-white: #ffffff;
+$color-gray-lightest: #e3e3e3;
+$color-gray-light: #b8b8b8;
+$color-gray-medium: #797777;
+$color-gray-dark: #444444;
+$color-black: #000000;
+$color-seaweed: #82ca9c;
+$color-plum: #551a8b;
+
+$color-body-bg: $color-gray-lightest;
+$color-modal-bg: $color-black;
+
+// Fonts
+$browser-context: 21; 
+$base-link-color: $color-plum;
+$base-link-color-hover: $color-gray-medium;
+$base-font-color: $color-black;
+$base-font-family: 'Josefin Sans', sans-serif;
+$base-font-size: #{$browser-context}px;
+
+$modal-font-color: $color-white;
+
+//
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+$smaller-font-size: em(17);
+$larger-font-size: em(26);
+
+// Layouts and spacing
+$max-width: 1050px;
+$header-height-value: 95;
+$header-height: em($header-height-value);
+$header-offset: em($header-height-value + 48);
+$spacer: em($browser-context);
+$block-padding: $spacer;
+
+// Styling
+$base-border-size: 1px;
+$base-border-color: $color-gray-dark;
+$base-border: $base-border-size $base-border-color solid;
+$base-border-radius: 10px;
+// Nav
+$nav-button-bar-width: 33px;
+
+// Media queries
+$device-width-small: 481px;
+$device-width-medium: 787px;
+$device-width-large: 900px;

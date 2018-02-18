@@ -1,0 +1,113 @@
+.social {
+  align-items: center;
+  display: flex;
+  grid-column: 5 / -1;
+  justify-content: center;
+}
+
+.social--top-nav {
+  justify-content: flex-end;
+}
+
+.social--footer {
+  margin-bottom: em(50);
+}
+
+.social__item-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social__item-list--mobile-nav {
+
+  .social__item {
+    flex: 0 1 22%;
+  }
+}
+
+
+.social__item-list--top-nav {
+  display: none;  
+  justify-content: flex-end;
+
+  .social__item {
+    flex: 0 50%;
+  }
+}
+
+.social__item-list--footer {
+  justify-content: space-between;
+
+  .social__item {
+    flex: 0 1 24%;
+  }
+}
+
+.social__item {
+  .social__item-icon,
+  .social__item-target {
+    height: 100%;
+    width: 100%;
+  }
+
+  .social__item-target {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    text-decoration: none;
+
+    //Hack for making .social__item-target clickable around SVG
+    &:after {
+      content: ""; 
+      position: absolute; 
+      top: 0; 
+      right: 0; 
+      bottom: 0; 
+      left: 0;
+    }
+  }
+
+  &:not(:last-child) {
+    .social__item-target {
+      margin-right: em(5);
+    }
+  }
+}
+
+@media (min-width: $device-width-small) {
+  .social__item-list--mobile-nav {
+    display: none;
+  }
+
+  .social__item-list--top-nav {
+    display: inline-flex;
+
+    .social__item {
+      flex: 1;
+    }
+  }
+
+  .social__item {
+    .social__item-icon,
+    a {
+      height: em(40);
+      width: em(40);
+    }
+  }
+  .social__item-list--footer {
+    .social__item {
+      .social__item-icon,
+      a {
+        height: em(96);
+        width: em(96);
+      }
+
+      &:not(:last-child) {
+        a {
+          margin-right: em(12);
+        }
+      }
+    }
+  }
+}

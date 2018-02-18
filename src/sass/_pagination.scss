@@ -1,0 +1,31 @@
+.pagination__wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.pagination__wrapper--landing {
+  grid-column: 1 / -1;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination__item {
+  padding: 0.25em;
+}
+
+.pagination__item--active {
+  .pagination__item-link {
+    color: $color-black;
+    text-decoration: none;
+  }
+}
+
+.pagination__item-link {
+  color: $color-gray-dark;
+}

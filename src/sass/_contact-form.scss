@@ -1,0 +1,136 @@
+.contact-form__fade-screen {
+  bottom: 0;
+  background-color: rgba($color-black, 0.6);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  padding: $spacer;
+  position: fixed;
+  right: 0;
+  transition: opacity 0.25s ease;
+  top: 0;
+  visibility: hidden;
+  z-index: 9999;
+}
+
+.contact-form {
+  background-color: $color-modal-bg;
+  border-radius: $base-border-radius;
+  color: $modal-font-color;
+  display: flex;
+  flex-flow: row wrap;
+  overflow: auto;
+  padding: $spacer;
+  max-width: 840px;
+  top: 26px; // 3/5 * header-offset
+}
+
+.contact-form__close-btn {
+  height: 1.5em;
+  position: absolute;
+  right: $spacer;
+  top: $spacer;
+  width: 1.5em;
+
+  &::after,
+  &::before {
+    background-color: $color-white;
+    bottom: 0;
+    content: '';
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    transform: rotate(45deg);
+    width: 0.15em;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+}
+
+.contact-form__title,
+.contact-form__input-wrapper {
+  flex: 1 0 100%;
+}
+
+.contact-form__input-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: $spacer;
+
+  > span {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+}
+
+.contact-form__input {
+  -webkit-appearance: none;
+  font-size: $smaller-font-size;
+  padding: $smaller-font-size;
+}
+
+.contact-form__input--textarea {
+  height: em(200);
+}
+
+.contact-form__state {
+  display: none;
+}
+
+.contact-form__state:checked + .contact-form__fade-screen {
+  opacity: 1;
+  overflow: auto;
+  transition: opacity 0.25s ease;
+  visibility: visible;
+}
+
+// Really ugly code to fix the plug-in wrapper element... sorry
+
+.wpcf7,
+.wpcf7 p, 
+.wpcf7 input:not([type=submit]),
+.wpcf7 textarea {
+  margin-top: 0;
+  width: 100%;
+  > br {
+    display: none;
+  }
+}
+
+.wpcf7,
+.wpcf7 p { // 
+  display: flex;
+}
+
+.wpcf7 p:first-of-type,
+.wpcf7 {
+  flex-direction: column;
+}
+
+.wpcf7 p:last-of-type {
+  justify-content: center;
+}
+
+span.wpcf7-not-valid-tip {
+  font-size: $smaller-font-size;
+  margin: $smaller-font-size 0;
+}
+
+div.wpcf7-response-output.wpcf7-validation-errors,
+div.wpcf7-response-output.wpcf7-acceptance-missing {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: $device-width-small) {
+  .contact-form {
+    width: 45vw;
+    padding: 2em;
+    position: absolute;
+  }
+}

@@ -1,0 +1,44 @@
+.cta-button__wrapper--column {
+  flex-direction: column;
+}
+
+.cta-button__wrapper--landing {
+  grid-column: 1 / -1;
+}
+
+a.cta-button,
+button.cta-button,
+.cta-button {
+  background-color: $color-black;
+  color: $color-white;
+  cursor: pointer;
+  font-size: $larger-font-size;
+  font-weight: bolder;
+  padding: em(12);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:not(:first-of-type) {
+    margin-top: em(10);
+  }
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.cta-button--inverted {
+  background-color: $color-white;
+  color: $color-black;
+  &:hover {
+    color: $color-black;
+  }
+}
+
+@media (min-width: $device-width-small) {
+  a.cta-button,
+  button.cta-button,
+  .cta-button {
+    padding: em(12) 4em;  
+  }
+}
