@@ -28,6 +28,13 @@ function register_theme_menus() {
 add_action('init', 'register_theme_menus');
 
 
+function gallery_default_type_set_link( $settings ) {
+    $settings['galleryDefaults']['link'] = 'none';
+    $settings['galleryDefaults']['size'] = 'large';
+    return $settings;
+}
+add_filter( 'media_view_settings', 'gallery_default_type_set_link');
+
 // Add additional <li> with mobile menu social icons
 function add_social_to_nav( $items, $args ) {
 
