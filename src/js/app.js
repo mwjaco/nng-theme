@@ -88,83 +88,8 @@ nextGen.fadeScreen = function() {
   });
 }
 
-nextGen.buildGrid = function() {  
-  var items = Array.from(document.querySelectorAll('.city-picker__item'));
-  if (items.length === 0) {
-    return;
-  }
-  var totalRows = Math.floor(items.length / 2.5);
-  var i;
-
-  for (i = 0; i <= totalRows; i++) {
-    var shiftOddRowsBy;
-    var  shiftEvenRowsBy;
-
-    if (i === 0) {
-      shiftOddRowsBy = 1;
-      shiftEvenRowsBy = 2;
-    } else if (i % 2 === 1) {
-      shiftOddRowsBy = i + 2;
-      shiftEvenRowsBy = i + 3;
-    } else {
-      shiftOddRowsBy = i + 3;
-      shiftEvenRowsBy = i + 4;
-    }
-
-    // Arrange first three of every five into odd rows
-    items.slice(5 * i, 5 * i + 3)
-      .forEach(function(item) {
-        item.style.gridRow = shiftOddRowsBy + ' / span 2';
-      });
-
-    // Arrange last two of five into even rows
-    items.slice(5 * i + 3, 5 * i + 5)
-      .forEach(function(item) {
-        item.style.gridRow = shiftEvenRowsBy + ' / span 2';
-      });
-  }
-};
-
-nextGen.buildLandingPage = function() {
-  // Round up all the items excluding the big diamond
-  var items = Array.from(document.querySelectorAll('.landing__item:not(:first-of-type)'));
-  if (items.length === 0) {
-    return;
-  }
-  var bottomLineBreak = document.querySelector('.landing__line-break-wrapper--bottom');
-  var totalRows = Math.floor(items.length / 1.5) || 1;
-  var i;
-
-  for (i = 0; i < totalRows; i++) {
-    var shiftOddRowsBy = 4;
-    var shiftEvenRowsBy = 5;
-    shiftOddRowsBy = shiftOddRowsBy + (i * 2);
-    shiftEvenRowsBy = shiftEvenRowsBy + (i * 2);
-
-    // Arrange first two of every three into odd rows
-    items.slice(3 * i, 3 * i + 2)
-      .forEach(function(item) {
-        item.style.gridRow = shiftOddRowsBy + '/ span 2';
-      });
-
-    // Arrange the third of every three into even rows;
-    items.slice(3 * i + 2, 3 * i + 3)
-      .forEach(function(item) {
-        item.style.gridRow = shiftEvenRowsBy + ' / span 2';
-      });
-  }
-
-  if (items.length % 3 === 0) {
-    bottomLineBreak.style.display = 'none';
-  } else {
-    bottomLineBreak.style.gridRow = totalRows + 4 + '/ -1';b816c6fb72bea9b1f12f9ae74df6d7301701786c
-  }
-};
-
 nextGen.ready(function() {
   nextGen.fadeScreen();
-  nextGen.buildLandingPage();
-  nextGen.buildGrid();
   nextGen.toggleMenu();
   nextGen.toggleModal();
 });
