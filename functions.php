@@ -35,6 +35,26 @@ function gallery_default_type_set_link( $settings ) {
 }
 add_filter( 'media_view_settings', 'gallery_default_type_set_link');
 
+function custom_image_size() {
+    // Set default values for the upload media box
+    update_option('image_default_size', 'large' );
+
+}
+
+add_filter( 'shortcode_atts_gallery', 'wpse246345_shortcode_atts_gallery', 10, 4 );
+function wpse246345_shortcode_atts_gallery( $out, $pairs, $atts, $shortcode ) {
+
+    if ( ! isset( $atts['link'] ) ) {
+        $out['link'] = 'none';
+    }   
+
+    if ( ! isset( $atts['size'] ) ) {
+        $out['size'] = 'large';
+    }
+
+    return $out;
+}
+
 // Add additional <li> with mobile menu social icons
 function add_social_to_nav( $items, $args ) {
 

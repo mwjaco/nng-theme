@@ -86,6 +86,8 @@ body {
   .header {
     align-items: center;
     background-color: $color-body-bg;
+    display: flex;
+    justify-content: space-between;
     z-index: 2;
   }
 }

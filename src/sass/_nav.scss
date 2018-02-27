@@ -1,8 +1,5 @@
 .nav {
-  display: grid;
-  grid-area: nav;
-  grid-column: 1 / 5;
-  grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
+
 }
 
 .nav__nav-bar {
@@ -22,7 +19,6 @@
   display: flex;
   font-size: 0;
   flex-direction: column;
-  grid-column: 1 / 2;
   position: relative;
   z-index: 4;
 
@@ -109,7 +105,7 @@
     background-color: $color-gray-dark;
     height: 100vh;
     list-style-type: none;
-    margin: -100px 0 0 -50px;
+    margin: -115px 0 0 -50px;
     padding: 125px $spacer $spacer 70px;
     transform: translate(-100%, 0);
     transform-origin: 0% 0%;
@@ -135,7 +131,6 @@
 
   .nav {
     align-items: center;
-    grid-column: 1 / 2;
     position: relative;
   }
 
@@ -184,3 +179,28 @@
     display: block;
   }
 }
+
+// @supports (display: grid) {
+//   .nav {
+//     display: grid;
+//     grid-area: nav;
+//     grid-column: 1 / 5;
+//     grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
+//   }
+
+//   .nav__button {
+//     grid-column: 1 / 2;
+//   }
+
+// @media (max-width: ($device-width-small - 1)) {
+//   .nav__nav-bar {
+//     margin: -100px 0 0 -50px;
+//   }
+// }
+
+//   @media (min-width: $device-width-small) {
+//     .nav {
+//       grid-column: 1 / 2;
+//     }
+//   }
+// }

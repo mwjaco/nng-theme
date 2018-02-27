@@ -30,7 +30,7 @@
 
 .city-picker__item {
   flex: 0 1 31.5%;
-  margin-top: -15%;
+  margin-top: -13vw;
   top: -15%;
   position: relative;
 
@@ -68,6 +68,10 @@
 }
 
 @media (min-width: $device-width-small) {
+  .city-picker__item {
+    margin-top: -15vw;
+  }
+
   .city-picker__item-image-wrapper {
     transform: rotate(45deg) scale(0.75);
 
@@ -91,6 +95,12 @@
 
   .city-picker__item-image {
     transform: rotate(-45deg) scale(1.25);
+  }
+}
+
+@media (min-width: $max-width) {
+  .city-picker__item {
+    margin-top: em(-157.5);
   }
 }
 

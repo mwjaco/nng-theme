@@ -1,4 +1,5 @@
 .landing {
+  display: flex;
   margin-bottom: em(50);
 }
 
@@ -19,7 +20,7 @@
   }
 
   flex: 0 1 33%;
-  margin-top: -15%;
+  margin-top: -13vw;
   // Handle left column
   &:nth-of-type(3n+2) {
     margin-left: 15%;
@@ -49,8 +50,8 @@
 }
 
 @media (min-width: $device-width-small) {
-  .landing__line-break-wrapper {
-    display: flex;
+  .landing__item {
+    margin-top: -15vw;
   }
 
   .landing__line-break {
@@ -75,13 +76,10 @@
   }
 }
 
-
-.landing {
-  display: flex;
-}
-
-.landing__line-break-wrapper {
-  display: none;
+@media (min-width: $max-width) {
+  .landing__item {
+    margin-top: em(-157.5);
+  }
 }
 
 // @supports (display: grid) {
@@ -143,6 +141,11 @@
 //     .landing__item-list {
 //       grid-gap: 20px;
 //     }
+
+    // .landing__line-break-wrapper {
+    //   display: flex;
+    // }
+
 
 //     .landing__line-break-wrapper--right {
 //       grid-row: 1 / 2;
