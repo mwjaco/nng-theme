@@ -302,4 +302,5 @@ function remove_shortcode_from_index( $content ) {
     return $content;
 }
 add_filter( 'the_content', 'remove_shortcode_from_index' );
+
 ?>
