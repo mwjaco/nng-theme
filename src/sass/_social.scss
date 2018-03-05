@@ -1,7 +1,6 @@
 .social {
   align-items: center;
   display: flex;
-  grid-column: 5 / -1;
   justify-content: center;
 }
 
@@ -111,3 +110,9 @@
     }
   }
 }
+
+// @supports (display: grid) {
+//   .social {
+//     grid-column: 5 / -1;
+//   }
+// }

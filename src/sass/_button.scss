@@ -3,7 +3,8 @@
 }
 
 .cta-button__wrapper--landing {
-  grid-column: 1 / -1;
+  margin-top: $spacer;
+  // grid-column: 1 / -1;
 }
 
 a.cta-button,
@@ -42,3 +43,9 @@ button.cta-button,
     padding: em(12) 4em;  
   }
 }
+
+// @supports (display: grid) {
+//   .cta-button__wrapper--landing {
+//     grid-column: 1 / -1;
+//   }
+// }

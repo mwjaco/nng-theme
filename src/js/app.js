@@ -88,8 +88,31 @@ nextGen.fadeScreen = function() {
   });
 }
 
+nextGen.handleResize = function() {
+  window.addEventListener('resize', function() {
+    var smallDeviceWidth = 480;
+    var viewportWidth = window.innerWidth;
+    var toggleButton = document.querySelector('.nav__button');
+    var navigation = document.querySelector('.nav__nav-bar');
+    if (viewportWidth > smallDeviceWidth) {
+      if (toggleButton.classList) {
+        toggleButton.classList.remove('nav__button--active');
+      } else {
+        toggleButton.className = toggleButton.className.replace(new RegExp('(^|\\b)' + 'nav__button--active'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+      }
+
+      if (navigation.classList) {
+        navigation.classList.remove('nav__nav-bar--active');
+      } else {
+        navigation.className = document.body.className.replace(new RegExp('(^|\\b)' + 'nav__nav-bar--active'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+      }
+    }
+  })
+}
+
 nextGen.ready(function() {
   nextGen.fadeScreen();
   nextGen.toggleMenu();
   nextGen.toggleModal();
+  nextGen.handleResize();
 });
