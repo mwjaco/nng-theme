@@ -11,6 +11,7 @@ body {
   padding: $block-padding;
 }
 
+.body--nav-open,
 .body--modal-open {
   overflow: hidden;
 }

@@ -25,6 +25,9 @@
                 ?>
             <?php endwhile; ?>
         </ul>
+        <div role='presentation' class='landing__line-break-wrapper landing__line-break-wrapper--top'>
+            <span class='landing__line-break landing__line-break--top'></span>
+        </div>
         <div role='presentation' class='landing__line-break-wrapper landing__line-break-wrapper--right'>
             <span class='landing__line-break landing__line-break--right'></span>
         </div>

@@ -36,6 +36,13 @@ nextGen.toggleMenu = function() {
       } else {
         navigation.className = nextGen.createClassList(navigation, 'nav__nav-bar--active');
       }
+
+      if (document.body.classList) {
+        document.body.classList.toggle('body--nav-open');
+      } else {
+        document.body.className = nextGen.createClassList(document.body, 'body--nav-open');
+      }
+
       e.preventDefault();
     });
   }
