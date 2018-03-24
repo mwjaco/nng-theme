@@ -2,17 +2,34 @@
 // Add support for post thumbnails, a.k.a. "Featured Images" or "Logos"
 add_theme_support( 'post-thumbnails' ); 
 
-// Enqueue JavaScript and stylesheet at the same time
-function nng_theme_scripts() {    
-  $style_path = get_template_directory_uri() . '/dist/css/style.css';
-  $script_path = get_template_directory_uri() . '/dist/js/bundle.js';
+add_action("wp_enqueue_scripts", "auto_version_and_enqueue_scripts", 20);
 
-  wp_enqueue_style( 'google_fonts', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600i,700', false ); 
-  wp_enqueue_style( 'style_css', $style_path, array(), null );
-  wp_enqueue_script( 'bundle_js', $script_path, array(), null, true );
+function auto_version_and_enqueue_scripts() {
+  // Get last modified timestamp of CSS file in /css/style.css
+  $csstime = filemtime( get_template_directory() . '/dist/css/style.css' );
+
+  // Get last modified timestamp of JS file in /js/main.js
+  $jtime = filemtime( get_template_directory() . '/dist/js/bundle.js' );
+
+  wp_enqueue_style(
+    'style_css', // handle for style.css
+    get_template_directory_uri() . '/dist/css/style.css',
+    array(), // dependencies
+    $csstime, // version number
+    false // load in footer
+  );
+
+  wp_enqueue_style( 'google_fonts', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600i,700', false );
+
+
+  wp_enqueue_script(
+    'all_js', // handle for main.js
+    get_template_directory_uri() . '/dist/js/bundle.js',
+    array(), // dependencies
+    $jtime, // version number
+    true // load in footer
+  );
 }
-
-add_action( 'wp_enqueue_scripts', 'nng_theme_scripts' );
 
 
 // Register our menus
