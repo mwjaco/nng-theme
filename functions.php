@@ -41,15 +41,14 @@ function custom_image_size() {
 
 }
 
-add_filter( 'shortcode_atts_gallery', 'wpse246345_shortcode_atts_gallery', 10, 4 );
-function wpse246345_shortcode_atts_gallery( $out, $pairs, $atts, $shortcode ) {
-
-    if ( ! isset( $atts['link'] ) ) {
-        $out['link'] = 'none';
-    }   
-
-    if ( ! isset( $atts['size'] ) ) {
-        $out['size'] = 'large';
+add_filter( 'shortcode_atts_gallery', 'remove_link_from_gallery_images_and_set_size_to_large', 10, 4 );
+function remove_link_from_gallery_images_and_set_size_to_large( $out, $pairs, $atts, $shortcode ) {
+    if (!isset( $atts['link'])) {
+      $out['link'] = 'none';
+    }
+   
+    if (!isset( $atts['size'])) {
+      $out['size'] = 'large';
     }
 
     return $out;
@@ -301,6 +300,4 @@ function remove_shortcode_from_index( $content ) {
     $content = strip_shortcodes( $content );
     return $content;
 }
-add_filter( 'the_content', 'remove_shortcode_from_index' );
-
-?>
+add_filter( 'the_content', 'remove_shortcode_from_index' ); ?>

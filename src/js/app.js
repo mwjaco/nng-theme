@@ -111,7 +111,13 @@ nextGen.handleResize = function() {
       if (navigation.classList) {
         navigation.classList.remove('nav__nav-bar--active');
       } else {
-        navigation.className = document.body.className.replace(new RegExp('(^|\\b)' + 'nav__nav-bar--active'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        navigation.className = navigation.className.replace(new RegExp('(^|\\b)' + 'nav__nav-bar--active'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+      }
+
+      if (document.body.classList) {
+        body.classList.remove('body--nav-open');
+      } else {
+        document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + 'body--nav-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
       }
     }
   })
