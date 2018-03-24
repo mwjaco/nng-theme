@@ -115,7 +115,7 @@ nextGen.handleResize = function() {
       }
 
       if (document.body.classList) {
-        body.classList.remove('body--nav-open');
+        document.body.classList.remove('body--nav-open');
       } else {
         document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + 'body--nav-open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
       }
