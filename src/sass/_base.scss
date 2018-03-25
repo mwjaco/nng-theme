@@ -6,34 +6,18 @@ html {
 body {
   font-family: $base-font-family;
   background: $color-body-bg;
-  display: grid;
-  grid-gap: $spacer;
-  grid-template-areas:
-    'header'
-    'main'
-    'footer';
-  grid-template-columns: 1fr;
   margin: 0 auto;
   max-width: $max-width;
   padding: $block-padding;
 }
 
+.body--nav-open,
 .body--modal-open {
   overflow: hidden;
 }
 
 .header {
-  display: grid;
-  grid-area: header;
-  grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
-}
-
-.social--top-nav {
-  grid-area: social--top-nav;
-}
-
-.main {
-  grid-area: main;
+  margin-bottom: $spacer;
 }
 
 .content a {
@@ -49,7 +33,6 @@ body {
 
 .cta-button__wrapper {
   display: flex;
-  //flex-direction: column;
   justify-content: center;
 }
 
@@ -59,14 +42,9 @@ body {
   border-right: 0;
   border-top: $base-border;
   margin: 0 0 em(36) 0;
-  max-width: 565px;
+  max-width: em(336);
   padding: 0;
   width: 100%;
-}
-
-.nav__button {
-  grid-area: nav__button;
-  // display: none;
 }
 
 .video__wrapper {
@@ -86,10 +64,6 @@ body {
   }
 }
 
-.footer {
-  grid-area: footer;
-}
-
 .footer__legal-wrapper {
   display: flex;
   justify-content: center;
@@ -106,11 +80,6 @@ body {
 
 @media (min-width: $device-width-small) {
   body {
-    grid-template-areas:
-      'header header header header header header'
-      'main main main main main main'
-      'footer footer footer footer footer footer';
-    grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
     padding: 0;
   }
 
@@ -122,42 +91,9 @@ body {
   .header {
     align-items: center;
     background-color: $color-body-bg;
-    grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
     z-index: 2;
-  }
-
-  .main--page {
-    grid-template-areas: 
-      'content content content content content content'
-      'city-picker city-picker city-picker city-picker city-picker city-picker'
-      'slider slider slider slider slider slider'
-      'content--secondary content--secondary content--secondary content--secondary content--secondary content--secondary'
-  }
-
-  .main--page-shift-right {
-    grid-template-areas:
-      'content content content content content content'
-      'banner banner banner banner banner banner'
-      'video video video video video video';
-  }
-
-  .main,
-  .content {
-    display: grid;
-    grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
-  }
-
-  .content {
-    grid-area: content;
-    grid-column: 1 / -1;
-  }
-
-  .content--secondary {
-    grid-area: content--secondary;
-  }
-
-  .video {
-    grid-area: video;
-    grid-column: span 6;
   }
 }

@@ -1,7 +1,5 @@
 .brand {
   display: flex;
-  grid-area: brand;
-  grid-column: 2 / 4;
   justify-content: center;
   position: relative;
   text-align: center;
@@ -24,7 +22,6 @@
 
 @media (min-width: $device-width-small) {
   .brand {
-    grid-column: 1 / 2;
     justify-content: flex-start;
     padding: em(24) 0;
   }

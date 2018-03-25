@@ -1,7 +1,6 @@
 .social {
   align-items: center;
   display: flex;
-  grid-column: 5 / -1;
   justify-content: center;
 }
 
@@ -23,6 +22,12 @@
 
   .social__item {
     flex: 0 1 22%;
+
+    /* IE11 Hack */
+    @media all and (-ms-high-contrast: none) {
+      flex-basis: em(40);
+      margin-right: em(10);
+    }
   }
 }
 
@@ -32,7 +37,13 @@
   justify-content: flex-end;
 
   .social__item {
-    flex: 0 50%;
+    flex: 0 1 24%;
+
+    /* IE11 Hack */
+    @media all and (-ms-high-contrast: none) {
+      flex-basis: em(40);
+      margin-right: em(10);
+    }
   }
 }
 
@@ -41,6 +52,12 @@
 
   .social__item {
     flex: 0 1 24%;
+
+    /* IE11 Hack */
+    @media all and (-ms-high-contrast: none) {
+      flex-basis: em(96);
+      margin-right: em(10);
+    }
   }
 }
 
@@ -84,7 +101,12 @@
     display: inline-flex;
 
     .social__item {
-      flex: 1;
+      flex: 1 0 25%;
+
+      /* IE11 Hack */
+      @media all and (-ms-high-contrast: none) {
+        flex-basis: em(40);
+      }
     }
   }
 

@@ -3,7 +3,7 @@
 }
 
 .cta-button__wrapper--landing {
-  grid-column: 1 / -1;
+  margin-top: em(50);
 }
 
 a.cta-button,
@@ -39,6 +39,6 @@ button.cta-button,
   a.cta-button,
   button.cta-button,
   .cta-button {
-    padding: em(12) 4em;  
+    padding: em(12) 2em;  
   }
 }
